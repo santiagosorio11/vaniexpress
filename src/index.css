@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #006b5f;
+  --color-secondary: #695d46;
+  --color-tertiary: #ac332a;
+  --color-surface: #f8fafa;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f2f4f4;
+  --color-surface-container: #eceeee;
+  --color-surface-container-high: #e6e8e8;
+  --color-surface-container-highest: #e1e3e3;
+  --color-on-surface: #191c1d;
+  --color-on-surface-variant: #3c4946;
+  --color-on-background: #191c1d;
+  --color-outline: #6c7a76;
+  --color-outline-variant: #bbcac5;
+  --color-primary-container: #00a896;
+  --color-on-primary-container: #00352e;
+  --color-secondary-container: #efdec0;
+  --color-on-secondary-container: #6d614a;
+  --color-tertiary-container: #f6685b;
+  --color-on-tertiary-container: #640004;
+  
+  --font-headline: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+.asymmetric-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+.vertical-text {
+  writing-mode: vertical-rl;
+}
+.editorial-shadow {
+  box-shadow: 0 40px 80px -20px rgba(25, 28, 29, 0.04);
+}

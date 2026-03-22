@@ -1,0 +1,276 @@
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import { hotels, vehicles } from '../data/content';
+
+const ArrowRight = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M5 12h14M12 5l7 7-7 7"/>
+  </svg>
+);
+
+const activities = [
+  {
+    emoji: '⛵',
+    title: 'Paseo en Yate privado',
+    desc: 'Navega hacia Isla Fuerte e Isla Palma con tripulación experta y cóckteles a bordo.',
+    img: '/assets/ACTIVIDADES1.jpeg',
+    color: 'from-sky-900/80 to-sky-700/60',
+  },
+  {
+    emoji: '🤿',
+    title: 'Buceo y Snorkel VIP',
+    desc: 'Arrecifes de coral únicos del Caribe colombiano accesibles solo por barco privado.',
+    img: '/assets/ACTIVIDADES2.jpeg',
+    color: 'from-teal-900/80 to-teal-700/60',
+  },
+  {
+    emoji: '🏖️',
+    title: 'Playas Vírgenes',
+    desc: 'Escóndete en las playas secretas de Moñitos y Coveñas sin aglomeraciones.',
+    img: '/assets/HOTELCORALDEFUEGO.jpeg',
+    color: 'from-amber-900/80 to-orange-700/60',
+  },
+  {
+    emoji: '🌿',
+    title: 'Ecoturismo & Manglares',
+    desc: 'Explora ecosistemas de manglares únicos en la costa de Córdoba en lancha eléctrica.',
+    img: '/assets/HOTELBAHIALARADAMOÑITOS.jpeg',
+    color: 'from-green-900/80 to-emerald-700/60',
+  },
+];
+
+const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <>
+      <Helmet>
+        <title>Vaniexpress | Tours y Transporte Privado – Caribe Colombiano</title>
+        <meta name="description" content="Vaniexpress: tours VIP y transporte privado por Isla Fuerte, Moñitos, Coveñas e Isla Palma. Hoteles exclusivos y vehículos de lujo en el Caribe colombiano." />
+        <meta name="keywords" content="tours caribe colombiano, transporte privado colombia, isla fuerte, moñitos cordoba, coveñas, isla palma, agencia de viajes caribe, vaniexpress" />
+      </Helmet>
+
+      {/* ─── HERO ─── */}
+      <header className="relative w-full h-screen overflow-hidden flex items-end pb-24 bg-slate-900">
+        <div className="absolute inset-0 z-0">
+          <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+            <source src="/assets/ISLAPALMAVIDEO.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/10"></div>
+        </div>
+
+        <div className="relative z-10 w-full px-8 md:px-16 max-w-[1920px] mx-auto pt-24">
+          <span className="inline-block text-white/60 font-semibold uppercase tracking-[0.3em] text-xs mb-5">
+            Isla Fuerte · Moñitos · Coveñas · Isla Palma
+          </span>
+          <h1 className="font-headline text-white text-6xl sm:text-7xl md:text-8xl font-extrabold tracking-tighter leading-[0.9] mb-6 drop-shadow-2xl">
+            Visita Colombia
+          </h1>
+          <p className="text-white/80 text-lg md:text-2xl max-w-2xl leading-relaxed mb-10 font-light">
+            Conoce el Caribe colombiano y sus maravillosas playas e islas con <span className="font-bold text-white">Vaniexpress</span>.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a
+              href="https://wa.me/573000000000?text=Hola,%20quiero%20planear%20un%20tour%20por%20el%20Caribe%20colombiano%20con%20Vaniexpress"
+              target="_blank" rel="noreferrer"
+              className="inline-flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-sm shadow-2xl hover:bg-primary hover:text-white transition-all hover:scale-105 active:scale-95"
+            >
+              Planear mi Viaje <ArrowRight />
+            </a>
+            <Link to="/destinos" className="inline-flex items-center gap-3 border border-white/40 text-white px-8 py-4 rounded-2xl font-semibold text-sm hover:bg-white/10 transition-all">
+              Ver Destinos
+            </Link>
+          </div>
+        </div>
+      </header>
+
+      {/* ─── DESTINOS ─── */}
+      <section className="py-14 px-4 md:px-16 max-w-[1920px] mx-auto">
+        <div className="mb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+          <div>
+            <h2 className="text-on-background font-headline text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tighter">
+              Destinos de Ensueño
+            </h2>
+            <p className="text-on-surface-variant text-base mt-3 font-light max-w-lg">
+              Hoteles boutique frente al mar en los rincones más hermosos del Caribe colombiano.
+            </p>
+          </div>
+          <Link to="/destinos" className="inline-flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-widest bg-primary/10 px-6 py-3 rounded-full hover:bg-primary/20 transition-all whitespace-nowrap">
+            Ver todos <ArrowRight />
+          </Link>
+        </div>
+
+        <div className="asymmetric-grid">
+          {hotels[0] && (
+            <Link to={`/hotel/${hotels[0].id}`} className="col-span-12 md:col-span-8 group relative overflow-hidden rounded-3xl aspect-[16/9] shadow-xl hover:shadow-2xl transition-all duration-500">
+              <img src={hotels[0].mainImage} alt={hotels[0].name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 p-8 text-white w-full">
+                <span className="text-xs font-bold uppercase tracking-widest text-white/70 mb-2 block">{hotels[0].location}</span>
+                <h3 className="font-headline text-2xl md:text-3xl font-extrabold mb-3">{hotels[0].name}</h3>
+                <span className="inline-flex items-center gap-2 bg-white/20 backdrop-blur border border-white/30 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest group-hover:bg-primary group-hover:border-primary transition-colors">
+                  Explorar <ArrowRight />
+                </span>
+              </div>
+            </Link>
+          )}
+          {hotels[1] && (
+            <Link to={`/hotel/${hotels[1].id}`} className="col-span-12 md:col-span-4 group relative overflow-hidden rounded-3xl aspect-[4/3] md:aspect-auto shadow-xl hover:shadow-2xl transition-all duration-500">
+              <img src={hotels[1].mainImage} alt={hotels[1].name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div className="absolute bottom-0 left-0 p-6 text-white w-full">
+                <span className="text-xs font-bold uppercase tracking-widest text-white/70 mb-1 block">{hotels[1].location}</span>
+                <h3 className="font-headline text-xl font-extrabold">{hotels[1].name}</h3>
+              </div>
+            </Link>
+          )}
+          {hotels[2] && (
+            <Link to={`/hotel/${hotels[2].id}`} className="col-span-12 md:col-span-6 group relative overflow-hidden rounded-3xl aspect-[16/9] shadow-xl hover:shadow-2xl transition-all duration-500">
+              <img src={hotels[2].mainImage} alt={hotels[2].name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div className="absolute bottom-0 left-0 p-6 text-white w-full">
+                <span className="text-xs font-bold uppercase tracking-widest text-white/70 mb-1 block">{hotels[2].location}</span>
+                <h3 className="font-headline text-xl font-extrabold">{hotels[2].name}</h3>
+              </div>
+            </Link>
+          )}
+          {hotels[3] && (
+            <Link to={`/hotel/${hotels[3].id}`} className="col-span-12 md:col-span-6 group relative overflow-hidden rounded-3xl aspect-[16/9] shadow-xl hover:shadow-2xl transition-all duration-500">
+              <img src={hotels[3].mainImage} alt={hotels[3].name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div className="absolute bottom-0 left-0 p-6 text-white w-full">
+                <span className="text-xs font-bold uppercase tracking-widest text-white/70 mb-1 block">{hotels[3].location}</span>
+                <h3 className="font-headline text-xl font-extrabold">{hotels[3].name}</h3>
+              </div>
+            </Link>
+          )}
+        </div>
+      </section>
+
+      {/* ─── ACTIVIDADES ─── */}
+      <section className="pt-14 pb-0">
+        <div className="mb-8 px-4 md:px-16 max-w-[1920px] mx-auto">
+          <span className="text-primary font-bold tracking-widest uppercase text-xs block mb-3">Experiencias Únicas</span>
+          <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tighter text-on-background mb-4">
+            Vive el Caribe como nunca
+          </h2>
+          <p className="text-on-surface-variant text-base font-light max-w-2xl">
+            Cada tour diseñado a medida — yates, buceo, playas escondidas y naturaleza pura. Transportamos tu grupo desde la puerta de tu hotel.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 lg:grid-cols-4">
+          {activities.map((act, i) => (
+            <div
+              key={act.title}
+              className="group relative overflow-hidden shadow-inner hover:shadow-2xl transition-all duration-500 cursor-pointer"
+              style={{ height: '380px' }}
+            >
+              <img src={act.img} alt={act.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className={`absolute inset-0 bg-gradient-to-r ${act.color}`}></div>
+              {/* Decorative number */}
+              <div className="absolute top-6 right-6 text-white/20 font-black text-7xl leading-none select-none">0{i+1}</div>
+              <div className="absolute inset-0 flex flex-col justify-end p-8">
+                <div className="flex items-center gap-4 mb-3">
+                  <span className="text-3xl drop-shadow-lg">{act.emoji}</span>
+                  <h3 className="font-headline text-2xl font-extrabold text-white leading-tight">{act.title}</h3>
+                </div>
+                <p className="text-white/80 text-sm leading-relaxed font-light mb-6 max-w-sm">{act.desc}</p>
+                <a
+                  href="https://wa.me/573000000000?text=Hola,%20quiero%20reservar%20una%20actividad%20en%20el%20Caribe%20con%20Vaniexpress"
+                  target="_blank" rel="noreferrer"
+                  onClick={e => e.stopPropagation()}
+                  className="inline-flex items-center gap-2 bg-white/20 border border-white/30 text-white text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full backdrop-blur hover:bg-white hover:text-teal-800 transition-all w-fit"
+                >
+                  Reservar <ArrowRight />
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── FLOTA ─── */}
+      <section className="py-14 bg-surface-container-low overflow-hidden mx-4 md:mx-16 rounded-3xl mb-12">
+        <div className="max-w-[1920px] mx-auto px-6 md:px-16 grid md:grid-cols-2 gap-16 items-center">
+          <div className="relative flex justify-center">
+            <div className="absolute w-72 h-72 bg-primary/15 rounded-full blur-[80px] z-0"></div>
+            <div className="relative z-10 bg-white p-5 rounded-3xl shadow-2xl w-full max-w-md md:-rotate-2 hover:rotate-0 transition-transform duration-500">
+              <div className="overflow-hidden rounded-2xl w-full h-[280px] md:h-[350px]">
+                <img src={vehicles[1]?.img} alt={vehicles[1]?.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+              </div>
+              <div className="mt-5 flex justify-between items-center px-2 pb-1">
+                <div>
+                  <p className="font-headline font-extrabold text-xl text-on-surface">{vehicles[1]?.name}</p>
+                  <p className="text-slate-500 text-xs uppercase tracking-widest font-semibold mt-0.5">{vehicles[1]?.capacity}</p>
+                </div>
+                <div className="flex gap-2">
+                  <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary">❄</div>
+                  <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary">⚡</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <span className="text-primary font-bold tracking-widest uppercase text-xs block mb-4">Movilidad Premium</span>
+            <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tighter text-on-background mb-6 leading-tight">
+              Tu Flota Privada en el Caribe
+            </h2>
+            <p className="text-on-surface-variant text-base md:text-lg leading-relaxed mb-8 font-light">
+              Vans, SUVs y minivanes equipados para el confort total. Conductores locales expertos en las rutas de Isla Fuerte, Moñitos, Coveñas e Isla Palma.
+            </p>
+            <ul className="space-y-4 mb-10">
+              <li className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-xl bg-white shadow flex items-center justify-center font-bold text-primary">✓</div>
+                <span className="font-semibold text-on-surface text-sm">Conductores certificados con experiencia costa Caribe</span>
+              </li>
+              <li className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-xl bg-white shadow flex items-center justify-center font-bold text-primary">✓</div>
+                <span className="font-semibold text-on-surface text-sm">A/C, asientos reclinables y Wi-Fi en todos los vehículos</span>
+              </li>
+            </ul>
+            <Link to="/vehiculos" className="bg-primary text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:bg-teal-700 hover:shadow-xl transition-all inline-flex items-center gap-3 text-sm">
+              Ver Catálogo de Vehículos <ArrowRight />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── CTA FINAL ─── */}
+      <section className="px-4 md:px-16 pb-16 max-w-[1920px] mx-auto">
+        <div className="bg-gradient-to-br from-teal-800 to-teal-600 rounded-3xl p-12 lg:p-20 text-center relative overflow-hidden shadow-2xl">
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
+            <div className="absolute top-0 left-0 w-80 h-80 bg-white rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2"></div>
+            <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-teal-300 rounded-full blur-[120px] translate-x-1/4 translate-y-1/4"></div>
+          </div>
+          <div className="relative z-10">
+            <span className="inline-block text-teal-200 font-bold tracking-widest uppercase text-xs mb-6">Vaniexpress Tours</span>
+            <h2 className="text-3xl lg:text-5xl font-extrabold text-white mb-5 tracking-tighter">
+              ¿Listo para tu próximo viaje al Caribe?
+            </h2>
+            <p className="text-teal-100 text-base lg:text-lg mb-10 max-w-2xl mx-auto font-light">
+              Isla Fuerte, Moñitos, Coveñas, Isla Palma — diseñamos el itinerario perfecto con transporte VIP incluido.
+            </p>
+            <a
+              href="https://wa.me/573000000000?text=Hola,%20quiero%20información%20sobre%20tours%20de%20Vaniexpress"
+              target="_blank" rel="noreferrer"
+              className="inline-flex items-center gap-3 bg-white text-teal-800 px-10 py-4 rounded-2xl font-bold text-base hover:scale-105 hover:shadow-xl transition-all"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Hablar con un Asesor
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default Home;
