@@ -70,7 +70,7 @@ const Destinations = () => {
         </header>
 
         {/* ─── Carrusel de Hoteles ─── */}
-        <section id="hoteles" className="px-4 md:px-16 py-24 max-w-[1920px] mx-auto" style={{ overflow: 'visible' }}>
+        <section id="hoteles" className="px-4 md:px-16 py-24 max-w-[1920px] mx-auto overflow-x-clip">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 gap-4">
             <div>
               <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-on-surface leading-tight">Estancias de Ensueño</h2>
@@ -92,7 +92,7 @@ const Destinations = () => {
               1280: { slidesPerView: 3 },
             }}
             loop={true}
-            style={{ overflow: 'visible', paddingBottom: '4rem', paddingTop: '0.5rem' }}
+            style={{ paddingBottom: '4rem', paddingTop: '0.5rem', overflow: 'visible' }}
           >
             {hotels.map((h, index) => (
               <SwiperSlide key={h.id} style={{ marginTop: index % 2 !== 0 ? '3.5rem' : '0' }}>
