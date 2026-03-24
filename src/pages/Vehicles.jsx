@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { vehicles, specialVan } from '../data/content';
+import { vehicles, fleetGroups } from '../data/content';
 
 const ArrowRight = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -19,217 +19,181 @@ const Vehicles = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const minivan = fleetGroups[0].vehicles.find(v => v.id === 'minivan-10-pasajeros');
+  const van = fleetGroups[0].vehicles.find(v => v.id === 'van-19-pasajeros');
+  const bus = fleetGroups[1].vehicles[0];
+
   return (
     <>
       <Helmet>
-        <title>Transporte Privado Caribe Colombiano | Vans y SUVs de Lujo | Vaniexpress</title>
-        <meta name="description" content="Transporte privado con vans, SUVs y minivanes para tours en Isla Fuerte, Moñitos, Coveñas e Isla Palma. Conductores locales expertos. Vaniexpress." />
-        <meta name="keywords" content="transporte privado caribe colombiano, van turistica colombia, SUV lujo caribe, traslados isla fuerte, vaniexpress flota" />
+        <title>Flota Vaniexpress | Transporte Privado VIP Caribe Colombiano</title>
+        <meta name="description" content="Nuestra flota desde sedanes ejecutivos hasta buses de 40 pasajeros. Confort, seguridad y puntualidad en todo el Caribe." />
       </Helmet>
 
-      <main className="bg-surface text-on-background font-body pb-32">
+      <main className="bg-[#f8fafa] text-slate-900 font-sans pb-32">
 
-        {/* ─── Hero — Full Viewport ─── */}
-        <section className="relative w-full h-screen flex items-center overflow-hidden bg-slate-900">
+        {/* ─── Hero — Matching Destinations Layout ─── */}
+        <header className="relative w-full h-screen flex items-center overflow-hidden bg-slate-900">
           <div className="absolute inset-0 z-0">
             <img
-              src={vehicles[0]?.img}
-              alt="Flota Vaniexpress transporte caribe colombiano"
-              className="w-full h-full object-cover opacity-70"
+              src="/assets/VEHICULOS1.jpeg"
+              alt="Flota Vaniexpress"
+              className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
           </div>
-          <div className="relative z-10 max-w-[1920px] mx-auto w-full px-8 md:px-16 pt-28">
-            <span className="inline-block text-white/60 font-bold tracking-widest uppercase text-xs mb-5">Exclusividad en Movimiento</span>
-            <h1 className="font-headline text-white text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter leading-[0.95] mb-5 max-w-2xl">
-              Flota Privada<br/>de Alta Gama
+          <div className="relative z-10 px-8 md:px-16 max-w-[1920px] mx-auto w-full pt-28">
+            <span className="inline-block text-white/60 font-bold tracking-[0.25em] uppercase text-xs mb-5">
+              Experiencias en Movimiento · VIP
+            </span>
+            <h1 className="text-white font-headline text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tighter mb-6 leading-[0.95] max-w-2xl">
+              Nuestra Flota <br/><span className="text-primary drop-shadow-[0_0_20px_rgba(45,212,191,0.2)]">de Alta Gama</span>
             </h1>
-            <p className="text-white/75 text-base max-w-xl leading-relaxed font-light mb-8">
-              Vehículos de última generación con conductores locales expertos. De tu puerta a Isla Fuerte, Moñitos, Coveñas e Isla Palma.
+            <p className="text-white/75 text-base md:text-lg max-w-xl leading-relaxed font-light mb-8">
+               Soluciones de movilidad privada desde 4 hasta 40 pasajeros. Vehículos de última generación con todas las pólizas y conductores profesionales.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#catalogo"
-                className="inline-flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-sm shadow-xl hover:bg-primary hover:text-white transition-all"
+                className="inline-flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-sm shadow-xl hover:bg-primary hover:text-white transition-all w-fit"
               >
-                Ver Vehículos <ArrowRight />
-              </a>
-              <a
-                href="#van-especial"
-                className="inline-flex items-center gap-3 border border-white/40 text-white px-8 py-4 rounded-2xl font-semibold text-sm hover:bg-white/10 transition-all uppercase tracking-widest"
-              >
-                Van 12 Pasajeros ⭐
+                Explorar Catálogo <ArrowRight />
               </a>
             </div>
           </div>
-        </section>
+        </header>
 
-        {/* ─── Beneficios ─── */}
-        <section className="py-20 max-w-[1920px] mx-auto px-8 md:px-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { icon: '🕐', title: 'Puntualidad Garantizada', desc: 'Seguimiento GPS en tiempo real. Llegamos puntual a cada destino del Caribe.' },
-              { icon: '👨‍✈️', title: 'Conductores Certificados', desc: 'Expertos en las rutas de Isla Fuerte, Moñitos, Coveñas e Isla Palma.' },
-              { icon: '🛡️', title: 'Seguridad Integral', desc: 'Mantenimiento certificado y pólizas de seguro de cobertura total.' },
-            ].map((b) => (
-              <div key={b.title} className="flex flex-col gap-4 p-7 rounded-2xl bg-surface-container-low border border-outline-variant/10 hover:bg-surface-container transition-colors">
-                <span className="text-4xl">{b.icon}</span>
-                <h3 className="font-headline text-lg font-bold text-on-surface">{b.title}</h3>
-                <p className="text-on-surface-variant text-sm leading-relaxed font-light">{b.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ─── Van Especial (Categoría Única) ─── */}
-        <section id="van-especial" className="py-20 px-8 md:px-16 max-w-[1920px] mx-auto">
-          <div className="bg-slate-900 rounded-[3rem] overflow-hidden shadow-2xl relative grid lg:grid-cols-2 items-center">
-            {/* Video Background/Content */}
-            <div className="relative h-[400px] lg:h-[700px] overflow-hidden order-1 lg:order-2">
-              <video 
-                autoPlay 
-                loop 
-                muted 
-                playsInline 
-                className="absolute inset-0 w-full h-full object-cover opacity-80"
-              >
-                <source src={specialVan.video} type="video/mp4" />
-              </video>
-              <div className="absolute inset-0 bg-gradient-to-l from-slate-900/40 via-transparent to-slate-900/90 lg:to-transparent"></div>
-              <div className="absolute bottom-10 left-10 z-10">
-                <span className="bg-primary text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full shadow-lg">
-                  Video Real del Vehículo
-                </span>
-              </div>
+        {/* ─── Contenedor de Catálogo ─── */}
+        <div id="catalogo" className="max-w-[1920px] mx-auto px-4 md:px-16 py-12 md:py-24 space-y-32">
+          
+          {/* FASE 1: Carros 4 Pax */}
+          <section>
+            <div className="flex items-center gap-4 mb-16 px-4">
+              <h2 className="text-xs font-black uppercase tracking-[0.5em] text-slate-400 whitespace-nowrap">Línea Ejecutiva 4 Pasajeros</h2>
+              <div className="h-px bg-slate-200 flex-grow"></div>
             </div>
 
-            {/* Content Details */}
-            <div className="p-10 lg:p-20 text-white z-10 order-2 lg:order-1">
-              <span className="text-primary font-bold tracking-[0.4em] uppercase text-xs mb-6 block">Categoría Especial</span>
-              <h2 className="font-headline text-4xl lg:text-6xl font-extrabold tracking-tighter mb-8 leading-[1.1]">
-                {specialVan.name}
-              </h2>
-              <p className="text-slate-300 text-lg md:text-xl font-light leading-relaxed mb-10 max-w-xl">
-                {specialVan.description}
-              </p>
-              
-              <div className="space-y-6 mb-12">
-                <div className="flex items-center gap-5">
-                  <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-3xl">👥</div>
-                  <div>
-                    <h5 className="font-bold text-white text-lg">{specialVan.capacity}</h5>
-                    <p className="text-slate-400 text-sm">Capacidad máxima garantizada</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-5">
-                  <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-3xl">❄️</div>
-                  <div>
-                    <h5 className="font-bold text-white text-lg">Clima Controlado</h5>
-                    <p className="text-slate-400 text-sm">Aire acondicionado de alto flujo</p>
-                  </div>
-                </div>
-              </div>
-
-              <a
-                href={`https://wa.me/573000000000?text=Hola%20Vaniexpress,%20quiero%20cotizar%20la%20Van%20Especial%20de%2012%20pasajeros`}
-                target="_blank" rel="noreferrer"
-                className="inline-flex items-center gap-4 bg-primary text-white px-10 py-5 rounded-3xl font-bold text-lg hover:bg-teal-700 hover:scale-105 transition-all shadow-xl"
-              >
-                <WaIcon /> Cotizar Van de 12
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── Catálogo de Carros ─── */}
-        <section id="catalogo" className="py-20 px-8 md:px-16 max-w-[1920px] mx-auto">
-          <div className="mb-14 text-center md:text-left">
-            <h2 className="font-headline text-3xl md:text-5xl font-extrabold tracking-tight text-on-background mb-4">Vehículos de 4 Pasajeros</h2>
-            <p className="text-on-surface-variant text-base md:text-lg font-light max-w-2xl">
-              Nuestra flota de vehículos compactos y SUVs para traslados ejecutivos y familiares con la mayor comodidad.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            {vehicles.map((v) => (
-              <article
-                key={v.id}
-                className="group flex flex-col sm:flex-row bg-white rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100"
-              >
-                <div className="w-full sm:w-2/5 h-64 sm:h-auto overflow-hidden relative bg-slate-100">
-                  <img src={v.img} alt={`${v.name} – Transporte Caribe | Vaniexpress`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-white/95 text-teal-700 font-black px-4 py-1.5 rounded-full text-[10px] uppercase tracking-widest shadow-lg">CONFORT</span>
-                  </div>
-                </div>
-
-                <div className="w-full sm:w-3/5 p-8 lg:p-10 flex flex-col justify-between">
-                  <div>
-                    <h4 className="font-headline text-2xl font-extrabold text-on-surface mb-2 tracking-tight">{v.name}</h4>
-                    <p className="text-sm text-on-surface-variant font-light mb-8 leading-relaxed">{v.shortDesc}</p>
-                    <div className="flex flex-wrap gap-3 mb-8">
-                      {v.specs.map(spec => (
-                        <span key={spec} className="px-4 py-2 bg-slate-50 rounded-xl text-[11px] font-bold text-slate-600 border border-slate-100">
-                          {spec}
-                        </span>
-                      ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {vehicles.map((v) => (
+                <div key={v.id} className="bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-sm hover:shadow-2xl transition-all flex flex-col group">
+                  <div className="aspect-[16/10] relative rounded-3xl overflow-hidden mb-8 bg-slate-100">
+                    <img src={v.img} alt={v.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <div className="absolute top-4 right-4">
+                      <span className="bg-white/95 backdrop-blur text-slate-900 text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest border border-slate-100 shadow-xl">{v.capacity}</span>
                     </div>
                   </div>
-                  <a
-                    href={`https://wa.me/573000000000?text=Hola%20Vaniexpress,%20quiero%20cotizar%20el%20${encodeURIComponent(v.name)}%20para%20un%20tour%20por%20el%20Caribe`}
-                    target="_blank" rel="noreferrer"
-                    className="flex justify-center items-center gap-3 w-full py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-primary transition-all text-sm group-hover:shadow-lg"
-                  >
-                    <WaIcon /> Cotizar Traslado
+                  <div className="flex-grow">
+                     <h3 className="font-headline text-3xl font-black text-slate-900 mb-2 tracking-tight group-hover:text-primary transition-colors">{v.name}</h3>
+                     <p className="text-slate-500 text-sm font-light leading-relaxed mb-8">{v.shortDesc}</p>
+                     
+                     <div className="flex flex-wrap gap-2 mb-10">
+                        {v.specs.map((spec, i) => (
+                          <span key={i} className="text-[10px] font-bold text-slate-600 bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-100 italic">
+                            {spec}
+                          </span>
+                        ))}
+                     </div>
+                  </div>
+                  <a href={`https://wa.me/573000000000?text=Hola,%20quiero%20reservar%20el%20vehículo%20${encodeURIComponent(v.name)}`} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-3 bg-slate-900 text-white py-5 rounded-2xl font-bold text-sm hover:bg-primary transition-all shadow-lg">
+                    Reservar Ahora <ArrowRight />
                   </a>
                 </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* ─── CTA Section ─── */}
-        {/* ... (Keeping existing CTA section but updating references if needed) */}
-
-
-        {/* ─── CTA Section ─── */}
-        <section className="px-8 md:px-16 pt-20 max-w-[1920px] mx-auto">
-          <div className="bg-gradient-to-br from-teal-800 to-teal-600 rounded-3xl p-12 lg:p-20 relative overflow-hidden shadow-2xl">
-            <div className="absolute inset-0 opacity-10 pointer-events-none">
-              <div className="absolute -top-20 -left-20 w-80 h-80 bg-white rounded-full blur-[100px]"></div>
-              <div className="absolute -bottom-20 -right-20 w-[400px] h-[400px] bg-white rounded-full blur-[120px]"></div>
+              ))}
             </div>
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-4 tracking-tighter">
-                  ¿Necesitas un vehículo para tu próximo tour?
-                </h2>
-                <p className="text-teal-100 text-base mb-8 font-light leading-relaxed">
-                  Grupos pequeños o grandes —  tenemos el vehículo perfecto para llevarte a Isla Fuerte, Moñitos, Coveñas e Isla Palma con total comodidad.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a
-                    href="https://wa.me/573000000000?text=Hola,%20necesito%20un%20vehículo%20para%20un%20tour%20por%20el%20Caribe%20con%20Vaniexpress"
+          </section>
+
+          {/* FASE 2: Minivan y Van (Corrección de Videos recortados) */}
+          <section>
+            <div className="flex items-center gap-4 mb-16 px-4">
+              <h2 className="text-xs font-black uppercase tracking-[0.5em] text-primary whitespace-nowrap">Transporte Grupal VIP</h2>
+              <div className="h-px bg-primary/20 flex-grow"></div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+               {[minivan, van].map((v) => (
+                 <div key={v.id} className="bg-white rounded-[3rem] overflow-hidden border border-slate-100 shadow-xl hover:shadow-2xl transition-all flex flex-col h-full transform hover:-translate-y-2 duration-500">
+                    <div className="aspect-square md:aspect-[16/10] relative bg-slate-900 overflow-hidden group">
+                      {v.video ? (
+                        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                          <source src={v.video} type="video/mp4" />
+                        </video>
+                      ) : (
+                        <img src={v.img} alt={v.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                      )}
+                      <div className="absolute top-6 left-6 z-10">
+                        <span className="bg-primary px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-xl text-white border border-primary/20">{v.capacity}</span>
+                      </div>
+                    </div>
+                    <div className="p-12 flex flex-col flex-grow justify-between bg-gradient-to-b from-white to-[#fdfdfd]">
+                      <div>
+                        <h3 className="font-headline text-4xl font-black text-slate-900 mb-4 tracking-tight leading-tight">{v.name}</h3>
+                        <p className="text-slate-500 text-lg leading-relaxed font-light mb-8 italic">"{v.shortDesc}"</p>
+                        
+                        <div className="grid grid-cols-2 gap-3 mb-10">
+                          {v.specs.map((spec, i) => (
+                            <div key={i} className="flex items-center gap-2 text-[10px] font-bold text-slate-700 bg-slate-100 px-4 py-2 rounded-xl">
+                              <div className="w-1.5 h-1.5 rounded-full bg-primary/40"></div>
+                              {spec}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <a
+                        href={`https://wa.me/573000000000?text=Hola,%20solicito%20presupuesto%20para%20${encodeURIComponent(v.name)}`}
+                        target="_blank" rel="noreferrer"
+                        className="flex items-center justify-center gap-4 bg-slate-900 text-white px-10 py-5 rounded-2xl font-bold text-base hover:bg-primary transition-all shadow-xl group/btn"
+                      >
+                        <WaIcon /> Cotizar Ahora <span className="group-hover/btn:translate-x-1 transition-transform"><ArrowRight /></span>
+                      </a>
+                    </div>
+                 </div>
+               ))}
+            </div>
+          </section>
+
+          {/* FASE 3: Bus (Special Section) */}
+          <section>
+            <div className="flex items-center gap-4 mb-16 px-4">
+              <h2 className="text-xs font-black uppercase tracking-[0.5em] text-slate-400 whitespace-nowrap">Logística a Gran Escala</h2>
+              <div className="h-px bg-slate-200 flex-grow"></div>
+            </div>
+
+            <div className="bg-slate-900 rounded-[4rem] overflow-hidden shadow-2xl relative flex flex-col lg:flex-row group">
+               <div className="w-full lg:w-1/2 h-[400px] lg:h-auto relative overflow-hidden">
+                  <img src={bus.img} alt={bus.name} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-[3000ms]" />
+               </div>
+               <div className="w-full lg:w-1/2 p-12 md:p-20 flex flex-col justify-center items-start text-left bg-gradient-to-br from-slate-900 to-[#101918]">
+                  <span className="bg-primary/20 text-primary text-[10px] font-black px-5 py-2 rounded-full uppercase tracking-widest border border-primary/30 mb-8 inline-block shadow-[0_0_20px_rgba(45,212,191,0.25)]">{bus.capacity}</span>
+                  <h2 className="text-white font-headline text-5xl md:text-7xl font-black tracking-tighter mb-8 leading-[0.85]">
+                    {bus.name}
+                  </h2>
+                  <p className="text-slate-400 text-lg md:text-xl font-light leading-relaxed mb-12 max-w-lg">
+                    {bus.shortDesc} Ideal para convenciones internacionales, congresos y logística corporativa masiva.
+                  </p>
+                  
+                  <div className="grid grid-cols-2 gap-x-10 gap-y-6 mb-16 w-full">
+                     {bus.specs.map((s, i) => (
+                        <div key={i} className="flex items-center gap-3 text-slate-300 font-bold text-sm">
+                           <div className="w-1.5 h-1.5 rounded-full bg-primary/40"></div>
+                           {s}
+                        </div>
+                     ))}
+                  </div>
+
+                  <a 
+                    href={`https://wa.me/573000000000?text=Solicitar%20Logística%20Masiva%20Bus%20Vaniexpress%2040%20Pasajeros`}
                     target="_blank" rel="noreferrer"
-                    className="inline-flex items-center justify-center gap-3 bg-white text-teal-800 px-8 py-4 rounded-2xl font-bold text-sm hover:scale-105 hover:shadow-xl transition-all"
+                    className="w-full md:w-auto flex items-center justify-center gap-4 bg-primary text-white px-12 py-6 rounded-3xl font-black text-lg hover:bg-teal-700 transition-all shadow-[0_15px_40px_rgba(45,212,191,0.3)]"
                   >
-                    <WaIcon /> Hablar con un Asesor
+                    <WaIcon /> Consultar Logística <ArrowRight />
                   </a>
-                </div>
-              </div>
-              <div className="hidden md:grid grid-cols-2 gap-4">
-                <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-xl">
-                  <img src={vehicles[0]?.img} alt={vehicles[0]?.name} className="w-full h-full object-cover" />
-                </div>
-                <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-xl mt-8">
-                  <img src={vehicles[1]?.img} alt={vehicles[1]?.name} className="w-full h-full object-cover" />
-                </div>
-              </div>
+               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
+        </div>
       </main>
     </>
   );

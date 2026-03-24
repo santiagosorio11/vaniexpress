@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { hotels, vehicles, specialVan } from '../data/content';
+import DestinationsCarousel from '../components/Destinations';
 
 const ArrowRight = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -28,14 +29,14 @@ const activities = [
     emoji: '🏖️',
     title: 'Playas Vírgenes',
     desc: 'Escóndete en las playas secretas de Moñitos y Coveñas sin aglomeraciones.',
-    img: '/assets/HOTELCORALDEFUEGO.jpeg',
+    img: '/assets/HOTELISLABONITAACTIVIDADES1.jpeg',
     color: 'from-amber-900/80 to-orange-700/60',
   },
   {
     emoji: '🌿',
     title: 'Ecoturismo & Manglares',
     desc: 'Explora ecosistemas de manglares únicos en la costa de Córdoba en lancha eléctrica.',
-    img: '/assets/HOTELBAHIALARADAMOÑITOS.jpeg',
+    img: '/assets/HOTELISLABONITAACTIVIDADES.jpeg',
     color: 'from-green-900/80 to-emerald-700/60',
   },
 ];
@@ -73,106 +74,26 @@ const Home = () => {
           <p className="text-white/80 text-lg md:text-2xl max-w-2xl leading-relaxed mb-10 font-light">
             Conoce el Caribe colombiano y sus maravillosas playas e islas con <span className="font-bold text-white">Vaniexpress</span>.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
             <a
               href="https://wa.me/573000000000?text=Hola,%20quiero%20planear%20un%20tour%20por%20el%20Caribe%20colombiano%20con%20Vaniexpress"
               target="_blank" rel="noreferrer"
-              className="inline-flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-sm shadow-2xl hover:bg-primary hover:text-white transition-all hover:scale-105 active:scale-95"
+              className="w-fit inline-flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-sm shadow-2xl hover:bg-primary hover:text-white transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
             >
               Planear mi Viaje <ArrowRight />
             </a>
-            <Link to="/destinos" className="inline-flex items-center gap-3 border border-white/40 text-white px-8 py-4 rounded-2xl font-semibold text-sm hover:bg-white/10 transition-all">
+            <Link to="/destinos" className="w-fit inline-flex items-center gap-3 border border-white/40 text-white px-8 py-4 rounded-2xl font-semibold text-sm hover:bg-white/10 transition-all whitespace-nowrap">
               Ver Destinos
             </Link>
           </div>
         </div>
       </header>
 
-      {/* ─── DESTINOS ─── */}
-      <section className="py-14 px-4 md:px-16 max-w-[1920px] mx-auto">
-        <div className="mb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
-          <div>
-            <h2 className="text-on-background font-headline text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tighter">
-              Destinos de Ensueño
-            </h2>
-            <p className="text-on-surface-variant text-base mt-3 font-light max-w-lg">
-              Hoteles boutique frente al mar en los rincones más hermosos del Caribe colombiano.
-            </p>
-          </div>
-          <Link to="/destinos" className="inline-flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-widest bg-primary/10 px-6 py-3 rounded-full hover:bg-primary/20 transition-all whitespace-nowrap">
-            Ver todos <ArrowRight />
-          </Link>
-        </div>
-
-        <div className="asymmetric-grid">
-          {hotels[0] && (
-            <Link to={`/hotel/${hotels[0].id}`} className="col-span-12 md:col-span-8 group relative overflow-hidden rounded-3xl aspect-[16/9] shadow-xl hover:shadow-2xl transition-all duration-500">
-              <img src={hotels[0].mainImage} alt={hotels[0].name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-8 text-white w-full">
-                <span className="text-xs font-bold uppercase tracking-widest text-white/70 mb-2 block">{hotels[0].location}</span>
-                <h3 className="font-headline text-2xl md:text-3xl font-extrabold mb-3">{hotels[0].name}</h3>
-                <span className="inline-flex items-center gap-2 bg-white/20 backdrop-blur border border-white/30 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest group-hover:bg-primary group-hover:border-primary transition-colors">
-                  Explorar <ArrowRight />
-                </span>
-              </div>
-            </Link>
-          )}
-          {hotels[1] && (
-            <Link to={`/hotel/${hotels[1].id}`} className="col-span-12 md:col-span-4 group relative overflow-hidden rounded-3xl aspect-[4/3] md:aspect-auto shadow-xl hover:shadow-2xl transition-all duration-500">
-              <img src={hotels[1].mainImage} alt={hotels[1].name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-6 text-white w-full">
-                <span className="text-xs font-bold uppercase tracking-widest text-white/70 mb-1 block">{hotels[1].location}</span>
-                <h3 className="font-headline text-xl font-extrabold">{hotels[1].name}</h3>
-              </div>
-            </Link>
-          )}
-          {hotels[2] && (
-            <Link to={`/hotel/${hotels[2].id}`} className="col-span-12 md:col-span-4 group relative overflow-hidden rounded-3xl aspect-[4/3] md:aspect-auto shadow-xl hover:shadow-2xl transition-all duration-500">
-              <img src={hotels[2].mainImage} alt={hotels[2].name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-6 text-white w-full">
-                <span className="text-xs font-bold uppercase tracking-widest text-white/70 mb-1 block">{hotels[2].location}</span>
-                <h3 className="font-headline text-xl font-extrabold">{hotels[2].name}</h3>
-              </div>
-            </Link>
-          )}
-          {hotels[3] && (
-            <Link to={`/hotel/${hotels[3].id}`} className="col-span-12 md:col-span-8 group relative overflow-hidden rounded-3xl aspect-[16/9] shadow-xl hover:shadow-2xl transition-all duration-500">
-              <img src={hotels[3].mainImage} alt={hotels[3].name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-6 text-white w-full">
-                <span className="text-xs font-bold uppercase tracking-widest text-white/70 mb-1 block">{hotels[3].location}</span>
-                <h3 className="font-headline text-xl font-extrabold">{hotels[3].name}</h3>
-              </div>
-            </Link>
-          )}
-          {hotels[4] && (
-            <Link to={`/hotel/${hotels[4].id}`} className="col-span-12 md:col-span-6 group relative overflow-hidden rounded-3xl aspect-[16/9] shadow-xl hover:shadow-2xl transition-all duration-500">
-              <img src={hotels[4].mainImage} alt={hotels[4].name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-6 text-white w-full">
-                <span className="text-xs font-bold uppercase tracking-widest text-white/70 mb-1 block">{hotels[4].location}</span>
-                <h3 className="font-headline text-xl font-extrabold">{hotels[4].name}</h3>
-              </div>
-            </Link>
-          )}
-          {hotels[5] && (
-            <Link to={`/hotel/${hotels[5].id}`} className="col-span-12 md:col-span-6 group relative overflow-hidden rounded-3xl aspect-[16/9] shadow-xl hover:shadow-2xl transition-all duration-500">
-              <img src={hotels[5].mainImage} alt={hotels[5].name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-6 text-white w-full">
-                <span className="text-xs font-bold uppercase tracking-widest text-white/70 mb-1 block">{hotels[5].location}</span>
-                <h3 className="font-headline text-xl font-extrabold">{hotels[5].name}</h3>
-              </div>
-            </Link>
-          )}
-        </div>
-      </section>
+      {/* ─── DESTINOS (Componente Reutilizable) ─── */}
+      <DestinationsCarousel />
 
       {/* ─── ACTIVIDADES ─── */}
-      <section className="pt-14 pb-0">
+      <section className="pt-10 md:pt-20 pb-0">
         <div className="mb-8 px-4 md:px-16 max-w-[1920px] mx-auto">
           <span className="text-primary font-bold tracking-widest uppercase text-xs block mb-3">Experiencias Únicas</span>
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tighter text-on-background mb-4">
@@ -215,61 +136,69 @@ const Home = () => {
       </section>
 
       {/* ─── FLOTA ─── */}
-      <section className="py-14 bg-surface-container-low overflow-hidden mx-4 md:mx-16 rounded-3xl mb-12">
+      <section className="py-10 md:py-20 bg-surface-container-low overflow-hidden mx-4 md:mx-16 rounded-3xl mb-8 md:mb-16">
         <div className="max-w-[1920px] mx-auto px-6 md:px-16 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-          {/* Info — primero en mobile, segundo en desktop */}
-          <div className="order-1 md:order-2">
-            <div className="absolute w-72 h-72 bg-primary/15 rounded-full blur-[80px] z-0"></div>
-            <div className="relative z-10 bg-white p-5 rounded-3xl shadow-2xl w-full max-w-md md:-rotate-2 hover:rotate-0 transition-transform duration-500">
-              <div className="overflow-hidden rounded-2xl w-full h-[280px] md:h-[350px] relative">
-                <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-                  <source src={specialVan.video} type="video/mp4" />
-                </video>
-                <div className="absolute top-3 right-3 bg-primary text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter shadow-sm">
-                  NUEVA VAN
-                </div>
-              </div>
-              <div className="mt-5 flex justify-between items-center px-2 pb-1">
-                <div>
-                  <p className="font-headline font-extrabold text-xl text-on-surface">{specialVan.name}</p>
-                  <p className="text-slate-500 text-xs uppercase tracking-widest font-semibold mt-0.5">{specialVan.capacity}</p>
-                </div>
-                <div className="flex gap-2">
-                  <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary">❄</div>
-                  <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary">⚡</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Foto — segundo en mobile, primero en desktop */}
-          <div className="order-2 md:order-1 relative flex justify-center flex-col">
+          {/* Info Texto — primero en mobile, primero en desktop por defecto */}
+          <div className="order-1 md:order-1 relative flex justify-center flex-col">
             <span className="text-primary font-bold tracking-widest uppercase text-xs block mb-4">Movilidad Premium</span>
             <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tighter text-on-background mb-6 leading-tight">
-              Flota Ampliada para Grupos VIP
+              Flota Ampliada: <br />de 4 a 40 Pasajeros
             </h2>
             <p className="text-on-surface-variant text-base md:text-lg leading-relaxed mb-8 font-light">
-              Ahora con nuestra nueva **Van de 12 pasajeros**. Además contamos con 4 vehículos de 4 pasajeros para traslados ejecutivos y familiares. Todo con A/C, Wi-Fi y conductores expertos.
+              Nuestra flota se expande para cubrir todas tus necesidades. Desde nuestra nueva **Van VIP de 19 pasajeros** y **Buses de 40**, hasta Minivanes de 10 y vehículos ejecutivos. Todo con la garantía de confort y seguridad Vaniexpress.
             </p>
             <ul className="space-y-4 mb-10">
               <li className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-white shadow flex items-center justify-center font-bold text-primary">✓</div>
-                <span className="font-semibold text-on-surface text-sm">Nueva Van de 12 pasajeros para grupos grandes</span>
+                <div className="w-10 h-10 rounded-xl bg-white shadow flex items-center justify-center font-bold text-primary">🚍</div>
+                <span className="font-semibold text-on-surface text-sm">Buses de Gran Turismo (40 Pax) y Vans VIP (19 Pax)</span>
               </li>
               <li className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-white shadow flex items-center justify-center font-bold text-primary">✓</div>
-                <span className="font-semibold text-on-surface text-sm">4 Vehículos ejecutivos (Sedán/SUV) de 4 pasajeros</span>
+                <div className="w-10 h-10 rounded-xl bg-white shadow flex items-center justify-center font-bold text-primary">🚐</div>
+                <span className="font-semibold text-on-surface text-sm">Minivanes Executive (10 Pax) y SUV/Sedán (4 Pax)</span>
               </li>
             </ul>
             <Link to="/vehiculos" className="bg-primary text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:bg-teal-700 hover:shadow-xl transition-all inline-flex items-center gap-3 text-sm w-fit">
-              Ver Catálogo de Vehículos <ArrowRight />
+              Explorar Catálogo de Flota <ArrowRight />
             </Link>
+          </div>
+
+          {/* Visual Showcase — Grid of top vehicles */}
+          <div className="order-2 md:order-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="sm:col-span-2 relative z-10 bg-white p-3 rounded-3xl shadow-xl transition-all hover:shadow-2xl">
+              <div className="overflow-hidden rounded-2xl w-full h-[250px] md:h-[300px] relative">
+                <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                  <source src={specialVan.video} type="video/mp4" />
+                </video>
+                <div className="absolute top-3 right-3 bg-primary text-white text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-tighter shadow-sm z-20">
+                  Van VIP
+                </div>
+              </div>
+              <div className="p-3">
+                <p className="font-headline font-extrabold text-lg text-slate-800">{specialVan.name}</p>
+                <p className="text-slate-400 text-[10px] uppercase font-bold tracking-widest">{specialVan.capacity}</p>
+              </div>
+            </div>
+            {/* Bus & Minivan minis */}
+            <div className="bg-white p-2 rounded-2xl shadow-md border border-slate-50">
+              <img src="/assets/VEHICULOSBUS.jpeg" alt="Bus Vaniexpress" className="aspect-video w-full object-cover rounded-xl mb-3 shadow-sm" />
+              <p className="font-bold text-slate-800 text-xs px-1">Bus Gran Turismo</p>
+              <p className="text-slate-400 text-[9px] px-1 font-bold uppercase">40 Pasajeros</p>
+            </div>
+            <div className="bg-white p-2 rounded-2xl shadow-md border border-slate-50">
+              <div className="aspect-video w-full overflow-hidden rounded-xl mb-3 shadow-sm">
+                <video autoPlay loop muted playsInline className="w-full h-full object-cover scale-150">
+                  <source src="/assets/VEHICULOSMINIVANVIDEO.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <p className="font-bold text-slate-800 text-xs px-1">Minivan Executive</p>
+              <p className="text-slate-400 text-[9px] px-1 font-bold uppercase">10 Pasajeros</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ─── CTA FINAL ─── */}
-      <section className="px-4 md:px-16 pb-16 max-w-[1920px] mx-auto">
+      <section className="px-4 md:px-16 pb-12 md:pb-24 max-w-[1920px] mx-auto">
         <div className="bg-gradient-to-br from-teal-800 to-teal-600 rounded-3xl p-12 lg:p-20 text-center relative overflow-hidden shadow-2xl">
           <div className="absolute inset-0 opacity-10 pointer-events-none">
             <div className="absolute top-0 left-0 w-80 h-80 bg-white rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2"></div>

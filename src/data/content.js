@@ -63,7 +63,7 @@ export const hotels = [
   {
     id: "covemar",
     name: "Hotel Covemar",
-    location: "Tolú, Sucre",
+    location: "Coveñas, Sucre",
     tag: "Aventura y Descanso",
     shortDesc: "Vistas espectaculares y una conexión directa con la naturaleza caribeña.",
     description: "Covemar es el equilibrio perfecto entre confort moderno y la vibrante energía del Caribe. Cuenta con instalaciones de primera clase, actividades acuáticas y espacios diseñados para tu total relajación frente a las aguas mansas de Tolú.",
@@ -103,7 +103,7 @@ export const hotels = [
     activities: ["Cata de vinos", "Yoga al amanecer", "Tour Manglares"]
   },
   {
-    id: "bahia-la-rada",
+    id: "bahía-la-rada",
     name: "Bahía La Rada",
     location: "Moñitos, Córdoba",
     tag: "Eco-Lodge Natural",
@@ -118,6 +118,63 @@ export const hotels = [
       "/assets/HOTELBAHIALARADAMOÑITOSCOMIDA.jpeg"
     ],
     activities: ["Avistamiento de aves", "Caminatas ecológicas", "Fogatas"]
+  },
+  {
+    id: "el-laguito",
+    name: "El Laguito Coveñas",
+    location: "Coveñas, Sucre",
+    tag: "Resort Familiar",
+    shortDesc: "Diversión y descanso para toda la familia frente a las playas de Coveñas.",
+    description: "El Laguito es el destino ideal para familias que buscan comodidad y entretenimiento. Con amplias zonas sociales, acceso directo a la playa y un ambiente acogedor, es el lugar perfecto para crear recuerdos inolvidables.",
+    mainImage: "/assets/HOTELELLAGUITOCOVEÑAS2.jpeg",
+    gallery: [
+      "/assets/HOTELELLAGUITOCOVEÑAS3.jpeg",
+      "/assets/HOTELELLAGUITOCOVEÑAS4.jpeg",
+      "/assets/HOTELELLAGUITOCOVEÑAS5.jpeg",
+      "/assets/HOTELELLAGUITOCOVEÑAS6.jpeg"
+    ],
+    videos: [
+      "/assets/HOTELELLAGUITOCOVEÑAS.mp4",
+      "/assets/HOTELELLAGUITOCOVEÑAS1.mp4"
+    ],
+    features: ["Ambiente Familiar", "Playa Privada", "Zonas Verdes", "Restaurante"],
+    food: [],
+    activities: ["Voleibol playa", "Kayak", "Cenas grupales"]
+  },
+  {
+    id: "los-tambos",
+    name: "Los Tambos",
+    location: "Archipiélago de San Bernardo",
+    tag: "Refugio Caribeño",
+    shortDesc: "Paz absoluta en el archipiélago más hermoso de Colombia.",
+    description: "Los Tambos ofrece una experiencia de desconexión total en el Archipiélago de San Bernardo. Un lugar donde el mar turquesa y la brisa constante son los protagonistas de tus vacaciones.",
+    mainImage: null, // No hay imágenes, usar videos
+    gallery: [],
+    videos: [
+      "/assets/HOTELLOSTAMBOSSANBERNARDO.mp4",
+      "/assets/HOTELLOSTAMBOSSANBERNARDO1.mp4",
+      "/assets/HOTELLOSTAMBOSSANBERNARDO2.mp4"
+    ],
+    features: ["Archipiélago", "Aguas Cristalinas", "Snorkel PRO", "Privacidad Total"],
+    food: [],
+    activities: ["Tour de Islas", "Careteo", "Descanso en Hamacas"]
+  },
+  {
+    id: "velanova",
+    name: "Velanova Isla Fuerte",
+    location: "Isla Fuerte, Bolívar",
+    tag: "Boutique Náutico",
+    shortDesc: "Elegancia náutica en el corazón de Isla Fuerte.",
+    description: "Velanova redefine la experiencia en Isla Fuerte con su propuesta boutique orientada al confort y la exclusividad. Disfruta de una estancia sofisticada con vistas inigualables al Caribe y servicio de primer nivel.",
+    mainImage: "/assets/HOTELVELANOVAISLAFUERTE.jpeg",
+    gallery: [],
+    videos: [
+      "/assets/HOTELVELANOVAISLAFUERTEVIDEO.mp4",
+      "/assets/HOTELVELANOVAISLAFUERTEVIDEO2.mp4"
+    ],
+    features: ["Diseño Náutico", "Vistas al Mar", "Bar de Autor", "Deck de Atardeceres"],
+    food: [],
+    activities: ["Navegación", "Snorkeling", "Cata de Cocteles"]
   }
 ];
 
@@ -140,7 +197,7 @@ export const vehicles = [
   },
   {
     id: "auto-sedan-2",
-    name: "Sedán Ejecutivo Ejecutivo",
+    name: "Sedán Ejecutivo",
     capacity: "4 Pasajeros",
     img: "/assets/VEHICULOS3.jpeg",
     shortDesc: "Elegancia y eficiencia para recorridos intermunicipales.",
@@ -156,13 +213,45 @@ export const vehicles = [
   }
 ];
 
-export const specialVan = {
-  id: "van-gran-capacidad",
-  name: "Van de Gran Capacidad",
-  capacity: "12 Pasajeros",
-  video: "/assets/VEHICULOVAN.mp4",
-  shortDesc: "Nuestra unidad de transporte masivo para experiencias grupales inolvidables.",
-  description: "Diseñada para grupos grandes que desean viajar juntos sin sacrificar el confort. Esta Van de 12 pasajeros es la opción predilecta para familias extendidas o grupos de amigos que visitan Isla Fuerte, Coveñas y Moñitos. Cuenta con espacios amplios, climatización de alto rendimiento y seguridad reforzada para todos los ocupantes.",
-  specs: ["Capacidad 12 personas", "Aire Acondicionado Dual", "Amplio espacio de equipaje", "Conductores con amplia experiencia en grupos"]
-};
+export const fleetGroups = [
+  {
+    title: "Vans y Microbuses",
+    vehicles: [
+      {
+        id: "van-19-pasajeros",
+        name: "Van de Pasajeros VIP",
+        capacity: "19 Pasajeros",
+        video: "/assets/VEHICULOVAN.mp4",
+        img: null,
+        shortDesc: "Espacio superior para grupos corporativos y familiares grandes.",
+        specs: ["Capacidad 19 personas", "A/C Dual", "Wi-Fi", "Espacio para Maletas"]
+      },
+      {
+        id: "minivan-10-pasajeros",
+        name: "Minivan Executive",
+        capacity: "10 Pasajeros",
+        video: "/assets/VEHICULOSMINIVANVIDEO.mp4",
+        img: "/assets/VEHICULOSMINIVAN.jpeg",
+        shortDesc: "Perfecta para grupos medianos con el máximo confort.",
+        specs: ["Capacidad 10 personas", "Sillas Reclinables", "Puertos USB", "Confort Plus"]
+      }
+    ]
+  },
+  {
+    title: "Transporte Masivo",
+    vehicles: [
+      {
+        id: "bus-40-pasajeros",
+        name: "Bus de Gran Turismo",
+        capacity: "40 Pasajeros",
+        img: "/assets/VEHICULOSBUS.jpeg",
+        video: null,
+        shortDesc: "La solución definitiva para congresos y eventos masivos.",
+        specs: ["Capacidad 40 personas", "Baño a Bordo", "TV / Audio", "Bodega Amplia"]
+      }
+    ]
+  }
+];
+
+export const specialVan = fleetGroups[0].vehicles[0]; // Mantener compatibilidad con Home
 

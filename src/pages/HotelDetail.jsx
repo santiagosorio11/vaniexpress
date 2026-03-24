@@ -46,7 +46,7 @@ const HotelDetail = () => {
       </section>
 
       {/* Main Content */}
-      <section className="max-w-7xl mx-auto px-4 py-20 -mt-10 relative z-30">
+      <section className="max-w-7xl mx-auto px-4 py-10 md:py-20 -mt-10 relative z-30">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
           <div className="lg:col-span-2">
              <div className="bg-white rounded-[2rem] p-10 md:p-14 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] mb-12 border border-slate-100 relative overflow-hidden">
@@ -64,19 +64,80 @@ const HotelDetail = () => {
                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
              </div>
 
-             {/* Gallery */}
-             {hotel.gallery && hotel.gallery.length > 0 && (
+             {/* Galería Unificada (Imágenes y Videos) */}
+             {((hotel.gallery && hotel.gallery.length > 0) || (hotel.videos && hotel.videos.length > 0) || hotel.mainImage) && (
                 <div className="mb-12">
-                   <h2 className="text-3xl font-bold mb-8 text-slate-800 tracking-tight px-4">Galería de Imágenes</h2>
-                   <Swiper modules={[Navigation, Pagination, Autoplay]} navigation pagination={{ clickable: true }} autoplay={{ delay: 3000 }} spaceBetween={20} slidesPerView={1} className="rounded-[2.5rem] shadow-xl overflow-hidden aspect-[16/10]">
-                      {hotel.gallery.map((img, i) => (
-                        <SwiperSlide key={i}>
-                           <img src={img} alt={`Galería ${i}`} className="w-full h-full object-cover" />
+                   <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 px-4 gap-4">
+                      <h2 className="text-3xl font-bold text-slate-800 tracking-tight">Experiencia Visual</h2>
+                   </div>
+                   <Swiper 
+                    modules={[Navigation, Pagination]} 
+                    navigation 
+                    pagination={{ clickable: true, dynamicBullets: true }} 
+                    spaceBetween={15} 
+                    slidesPerView={1} 
+                    breakpoints={{
+                       640: { slidesPerView: 1.2, spaceBetween: 20 },
+                       1024: { slidesPerView: 2.2, spaceBetween: 30 }
+                    }}
+                    className="overflow-visible pb-12"
+                  >
+                      {/* Imagen Principal */}
+                      <SwiperSlide>
+                         <div className="aspect-[4/4.5] sm:aspect-[3/4] rounded-[2.5rem] overflow-hidden shadow-xl border border-white max-h-[500px] sm:max-h-none">
+                            <img src={hotel.mainImage} alt={hotel.name} className="w-full h-full object-cover" />
+                         </div>
+                      </SwiperSlide>
+
+                      {hotel.gallery && hotel.gallery.map((img, i) => (
+                        <SwiperSlide key={`img-${i}`}>
+                           <div className="aspect-[4/4.5] sm:aspect-[3/4] rounded-[2.5rem] overflow-hidden shadow-xl border border-white max-h-[500px] sm:max-h-none">
+                              <img src={img} alt={`Galería ${i}`} className="w-full h-full object-cover" />
+                           </div>
+                        </SwiperSlide>
+                      ))}
+                      {hotel.videos && hotel.videos.map((vid, i) => (
+                        <SwiperSlide key={`vid-${i}`}>
+                           <div className="aspect-[4/4.5] sm:aspect-[3/4] rounded-[2.5rem] overflow-hidden shadow-xl bg-slate-900 border border-white relative group max-h-[500px] sm:max-h-none">
+                              <video 
+                                src={vid} 
+                                controls 
+                                playsInline 
+                                onPlay={(e) => {
+                                   if (e.target.requestFullscreen) {
+                                      e.target.requestFullscreen();
+                                   }
+                                }}
+                                onLoadedMetadata={(e) => {
+                                   const video = e.target;
+                                   const exitFullscreenHandler = () => {
+                                      if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
+                                         video.pause();
+                                         video.removeEventListener('fullscreenchange', exitFullscreenHandler);
+                                         video.removeEventListener('webkitfullscreenchange', exitFullscreenHandler);
+                                      }
+                                   };
+                                   video.addEventListener('fullscreenchange', exitFullscreenHandler);
+                                   video.addEventListener('webkitfullscreenchange', exitFullscreenHandler);
+                                }}
+                                className="w-full h-full object-cover transition-all duration-300 video-item" 
+                              />
+                           </div>
                         </SwiperSlide>
                       ))}
                    </Swiper>
                 </div>
              )}
+             <style dangerouslySetInnerHTML={{ __html: `
+                .video-item:fullscreen {
+                   object-fit: contain !important;
+                   background-color: black;
+                }
+                .video-item:-webkit-full-screen {
+                   object-fit: contain !important;
+                   background-color: black;
+                }
+             `}} />
           </div>
           
           <div className="lg:col-span-1">
@@ -105,7 +166,7 @@ const HotelDetail = () => {
       </section>
 
       {/* ─── CTA Section ─── */}
-      <section className="mx-0 px-4 md:px-16 py-20">
+      <section className="mx-0 px-4 md:px-16 py-10 md:py-20">
         <div className="bg-gradient-to-br from-teal-800 to-teal-600 rounded-3xl p-12 lg:p-20 text-center relative overflow-hidden shadow-2xl max-w-5xl mx-auto">
           <div className="absolute inset-0 opacity-10 pointer-events-none">
             <div className="absolute -top-20 -left-20 w-80 h-80 bg-white rounded-full blur-[100px]"></div>
