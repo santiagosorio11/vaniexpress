@@ -19,6 +19,48 @@ export const hotels = [
     activities: ["Snorkel", "Paseo en yate", "Masajes relajantes"]
   },
   {
+    id: "isla-bonita",
+    name: "Hotel Isla Bonita",
+    location: "Isla Fuerte, Bolívar",
+    tag: "Paraíso Tropical",
+    shortDesc: "Vive una experiencia única en una de las islas más bellas del Caribe.",
+    description: "El Hotel Isla Bonita es un oasis de tranquilidad rodeado de aguas cristalinas y naturaleza exuberante. Disfruta de la exclusividad de una isla privada con todas las comodidades, gastronomía local de primer nivel y actividades inolvidables bajo el sol caribeño.",
+    mainImage: "/assets/HOTELISLABONITA2.jpeg",
+    gallery: [
+      "/assets/HOTELISLABONITA3.jpeg"
+    ],
+    videos: [
+      "/assets/HOTELISLABONITA.mp4",
+      "/assets/HOTELISLABONITA1.mp4"
+    ],
+    features: ["Isla Privada", "Arrecifes Coralinos", "Restaurante de Mar", "Zonas de Relax"],
+    food: [
+      "/assets/HOTELISLABONITACOMIDA.jpeg",
+      "/assets/HOTELISLABONITACOMIDA2.jpeg",
+      "/assets/HOTELISLABONITACOMIDA3.jpeg"
+    ],
+    activities: ["Esnórquel guiado", "Kayaks", "Cenas en la playa", "/assets/HOTELISLABONITAACTIVIDADES.jpeg", "/assets/HOTELISLABONITAACTIVIDADES1.jpeg"]
+  },
+  {
+    id: "la-playita-isla-fuerte",
+    name: "La Playita Isla Fuerte",
+    location: "Isla Fuerte, Bolívar",
+    tag: "Eco-Boutique",
+    shortDesc: "Desconexión total en el refugio eco-luxury más exclusivo de Isla Fuerte.",
+    description: "Descubre el secreto mejor guardado del Caribe. La Playita combina la rusticidad natural con el confort boutique, ofreciendo un refugio íntimo donde el tiempo se detiene entre manglares, corales y la hospitalidad más genuina de la región.",
+    mainImage: "/assets/HOTELLAPLAYITAISLAFUERTE1.jpeg",
+    gallery: [
+      "/assets/HOTELLAPLAYITAISLAFUERTE2.jpeg",
+      "/assets/HOTELLAPLAYITAISLAFUERTE3.jpeg"
+    ],
+    videos: [
+      "/assets/HOTELLAPLAYITAISLAFUERTE.mp4"
+    ],
+    features: ["Sostenibilidad", "Playa Virgen", "Snorkel de Clase Mundial", "Yoga Deck"],
+    food: [],
+    activities: ["Paseo por el árbol de la vida", "Surf y Paddle", "Tour de Perezosos"]
+  },
+  {
     id: "covemar",
     name: "Hotel Covemar",
     location: "Tolú, Sucre",
@@ -45,7 +87,7 @@ export const hotels = [
     location: "San Antero, Córdoba",
     tag: "Boutique Exclusivo",
     shortDesc: "Experiencia boutique íntima con la mejor gastronomía de la región.",
-    description: "Un refugio boutique donde cada detalle está cuidadosamente pensado. En Vista al Mar disfrutarás de atardeceres ininterrumpidos, una arquitectura que respira la brisa caribeña y delicias culinarias preparadas con pesca del día.",
+    description: "Un refugio boutique donde cada detail está cuidadosamente pensado. En Vista al Mar disfrutarás de atardeceres ininterrumpidos, una arquitectura que respira la brisa caribeña y delicias culinarias preparadas con pesca del día.",
     mainImage: "/assets/HOTELVISTAALMAR.jpeg",
     gallery: [
       "/assets/HOTELVISTAALMAR1.jpeg",
@@ -80,36 +122,47 @@ export const hotels = [
 ];
 
 export const vehicles = [
-  { 
-    id: "van-ejecutiva",
-    name: "Van Ejecutiva VIP", 
-    capacity: "12 Pasajeros", 
-    img: "/assets/VEHICULOS1.jpeg", 
-    shortDesc: "Máximo confort para grupos grandes.",
-    specs: ["A/C Dual", "Asientos de Cuero Reclinables", "Wi-Fi a bordo", "Pantallas TV", "Amplio Maletero"] 
+  {
+    id: "auto-sedan-1",
+    name: "Sedán Premium Confort",
+    capacity: "4 Pasajeros",
+    img: "/assets/VEHICULOS1.jpeg",
+    shortDesc: "Ideal para parejas o familias pequeñas buscando comodidad.",
+    specs: ["A/C Full", "Baúl Amplio", "Seguro Total", "Conductor Bilingüe Opc."]
   },
-  { 
-    id: "suv-premium",
-    name: "SUV Toyota Premium", 
-    capacity: "5 Pasajeros", 
-    img: "/assets/VEHICULOS2.jpeg", 
-    shortDesc: "Elegancia 4x4 para familias VIP.",
-    specs: ["Militar 4x4", "Climatizador Trizona", "Asientos Ventilados", "Sonido Bose", "Techo Panorámico"] 
+  {
+    id: "suv-familiar-1",
+    name: "SUV Confort Familiar",
+    capacity: "4 Pasajeros",
+    img: "/assets/VEHICULOS2.jpeg",
+    shortDesc: "Espacio y potencia para tus traslados en la costa.",
+    specs: ["Militar 4x4", "Climatizador", "Asientos de Cuero", "Sonido Premium"]
   },
-  { 
-    id: "minivan-lujo",
-    name: "Minivan Kia Sedona", 
-    capacity: "8 Pasajeros", 
-    img: "/assets/VEHICULOS3.jpeg", 
-    shortDesc: "El balance perfecto de espacio y maniobrabilidad.",
-    specs: ["Puertas Eléctricas Automáticas", "Carga Inalámbrica", "Cortinillas Solares", "Control Crucero"] 
+  {
+    id: "auto-sedan-2",
+    name: "Sedán Ejecutivo Ejecutivo",
+    capacity: "4 Pasajeros",
+    img: "/assets/VEHICULOS3.jpeg",
+    shortDesc: "Elegancia y eficiencia para recorridos intermunicipales.",
+    specs: ["Puertas Eléctricas", "Carga Inalámbrica", "Vidrios Polarizados", "Control Crucero"]
   },
-  { 
-    id: "van-turistica",
-    name: "Van Turística Renault", 
-    capacity: "14 Pasajeros", 
-    img: "/assets/VEHICULOS4.jpeg", 
-    shortDesc: "Pensada para recorridos largos con ergonomía superior.",
-    specs: ["Sillas Individuales", "Iluminación LED de lectura", "Micrófono para Guía", "Refrigerador a Bordo"] 
+  {
+    id: "suv-premium-1",
+    name: "SUV Premium Luxury",
+    capacity: "4 Pasajeros",
+    img: "/assets/VEHICULOS4.jpeg",
+    shortDesc: "La mejor experiencia de viaje para grupos exclusivos de 4.",
+    specs: ["Sillas Individuales", "Iluminación LED", "Nevera a Bordo", "Asistencia 24h"]
   }
 ];
+
+export const specialVan = {
+  id: "van-gran-capacidad",
+  name: "Van de Gran Capacidad",
+  capacity: "12 Pasajeros",
+  video: "/assets/VEHICULOVAN.mp4",
+  shortDesc: "Nuestra unidad de transporte masivo para experiencias grupales inolvidables.",
+  description: "Diseñada para grupos grandes que desean viajar juntos sin sacrificar el confort. Esta Van de 12 pasajeros es la opción predilecta para familias extendidas o grupos de amigos que visitan Isla Fuerte, Coveñas y Moñitos. Cuenta con espacios amplios, climatización de alto rendimiento y seguridad reforzada para todos los ocupantes.",
+  specs: ["Capacidad 12 personas", "Aire Acondicionado Dual", "Amplio espacio de equipaje", "Conductores con amplia experiencia en grupos"]
+};
+

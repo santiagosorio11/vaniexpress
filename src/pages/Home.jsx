@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { hotels, vehicles } from '../data/content';
+import { hotels, vehicles, specialVan } from '../data/content';
 
 const ArrowRight = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -129,7 +129,7 @@ const Home = () => {
             </Link>
           )}
           {hotels[2] && (
-            <Link to={`/hotel/${hotels[2].id}`} className="col-span-12 md:col-span-6 group relative overflow-hidden rounded-3xl aspect-[16/9] shadow-xl hover:shadow-2xl transition-all duration-500">
+            <Link to={`/hotel/${hotels[2].id}`} className="col-span-12 md:col-span-4 group relative overflow-hidden rounded-3xl aspect-[4/3] md:aspect-auto shadow-xl hover:shadow-2xl transition-all duration-500">
               <img src={hotels[2].mainImage} alt={hotels[2].name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-6 text-white w-full">
@@ -139,12 +139,32 @@ const Home = () => {
             </Link>
           )}
           {hotels[3] && (
-            <Link to={`/hotel/${hotels[3].id}`} className="col-span-12 md:col-span-6 group relative overflow-hidden rounded-3xl aspect-[16/9] shadow-xl hover:shadow-2xl transition-all duration-500">
+            <Link to={`/hotel/${hotels[3].id}`} className="col-span-12 md:col-span-8 group relative overflow-hidden rounded-3xl aspect-[16/9] shadow-xl hover:shadow-2xl transition-all duration-500">
               <img src={hotels[3].mainImage} alt={hotels[3].name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-6 text-white w-full">
                 <span className="text-xs font-bold uppercase tracking-widest text-white/70 mb-1 block">{hotels[3].location}</span>
                 <h3 className="font-headline text-xl font-extrabold">{hotels[3].name}</h3>
+              </div>
+            </Link>
+          )}
+          {hotels[4] && (
+            <Link to={`/hotel/${hotels[4].id}`} className="col-span-12 md:col-span-6 group relative overflow-hidden rounded-3xl aspect-[16/9] shadow-xl hover:shadow-2xl transition-all duration-500">
+              <img src={hotels[4].mainImage} alt={hotels[4].name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div className="absolute bottom-0 left-0 p-6 text-white w-full">
+                <span className="text-xs font-bold uppercase tracking-widest text-white/70 mb-1 block">{hotels[4].location}</span>
+                <h3 className="font-headline text-xl font-extrabold">{hotels[4].name}</h3>
+              </div>
+            </Link>
+          )}
+          {hotels[5] && (
+            <Link to={`/hotel/${hotels[5].id}`} className="col-span-12 md:col-span-6 group relative overflow-hidden rounded-3xl aspect-[16/9] shadow-xl hover:shadow-2xl transition-all duration-500">
+              <img src={hotels[5].mainImage} alt={hotels[5].name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div className="absolute bottom-0 left-0 p-6 text-white w-full">
+                <span className="text-xs font-bold uppercase tracking-widest text-white/70 mb-1 block">{hotels[5].location}</span>
+                <h3 className="font-headline text-xl font-extrabold">{hotels[5].name}</h3>
               </div>
             </Link>
           )}
@@ -196,17 +216,23 @@ const Home = () => {
 
       {/* ─── FLOTA ─── */}
       <section className="py-14 bg-surface-container-low overflow-hidden mx-4 md:mx-16 rounded-3xl mb-12">
-        <div className="max-w-[1920px] mx-auto px-6 md:px-16 grid md:grid-cols-2 gap-16 items-center">
-          <div className="relative flex justify-center">
+        <div className="max-w-[1920px] mx-auto px-6 md:px-16 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+          {/* Info — primero en mobile, segundo en desktop */}
+          <div className="order-1 md:order-2">
             <div className="absolute w-72 h-72 bg-primary/15 rounded-full blur-[80px] z-0"></div>
             <div className="relative z-10 bg-white p-5 rounded-3xl shadow-2xl w-full max-w-md md:-rotate-2 hover:rotate-0 transition-transform duration-500">
-              <div className="overflow-hidden rounded-2xl w-full h-[280px] md:h-[350px]">
-                <img src={vehicles[1]?.img} alt={vehicles[1]?.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+              <div className="overflow-hidden rounded-2xl w-full h-[280px] md:h-[350px] relative">
+                <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                  <source src={specialVan.video} type="video/mp4" />
+                </video>
+                <div className="absolute top-3 right-3 bg-primary text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter shadow-sm">
+                  NUEVA VAN
+                </div>
               </div>
               <div className="mt-5 flex justify-between items-center px-2 pb-1">
                 <div>
-                  <p className="font-headline font-extrabold text-xl text-on-surface">{vehicles[1]?.name}</p>
-                  <p className="text-slate-500 text-xs uppercase tracking-widest font-semibold mt-0.5">{vehicles[1]?.capacity}</p>
+                  <p className="font-headline font-extrabold text-xl text-on-surface">{specialVan.name}</p>
+                  <p className="text-slate-500 text-xs uppercase tracking-widest font-semibold mt-0.5">{specialVan.capacity}</p>
                 </div>
                 <div className="flex gap-2">
                   <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary">❄</div>
@@ -216,25 +242,26 @@ const Home = () => {
             </div>
           </div>
 
-          <div>
+          {/* Foto — segundo en mobile, primero en desktop */}
+          <div className="order-2 md:order-1 relative flex justify-center flex-col">
             <span className="text-primary font-bold tracking-widest uppercase text-xs block mb-4">Movilidad Premium</span>
             <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tighter text-on-background mb-6 leading-tight">
-              Tu Flota Privada en el Caribe
+              Flota Ampliada para Grupos VIP
             </h2>
             <p className="text-on-surface-variant text-base md:text-lg leading-relaxed mb-8 font-light">
-              Vans, SUVs y minivanes equipados para el confort total. Conductores locales expertos en las rutas de Isla Fuerte, Moñitos, Coveñas e Isla Palma.
+              Ahora con nuestra nueva **Van de 12 pasajeros**. Además contamos con 4 vehículos de 4 pasajeros para traslados ejecutivos y familiares. Todo con A/C, Wi-Fi y conductores expertos.
             </p>
             <ul className="space-y-4 mb-10">
               <li className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-xl bg-white shadow flex items-center justify-center font-bold text-primary">✓</div>
-                <span className="font-semibold text-on-surface text-sm">Conductores certificados con experiencia costa Caribe</span>
+                <span className="font-semibold text-on-surface text-sm">Nueva Van de 12 pasajeros para grupos grandes</span>
               </li>
               <li className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-xl bg-white shadow flex items-center justify-center font-bold text-primary">✓</div>
-                <span className="font-semibold text-on-surface text-sm">A/C, asientos reclinables y Wi-Fi en todos los vehículos</span>
+                <span className="font-semibold text-on-surface text-sm">4 Vehículos ejecutivos (Sedán/SUV) de 4 pasajeros</span>
               </li>
             </ul>
-            <Link to="/vehiculos" className="bg-primary text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:bg-teal-700 hover:shadow-xl transition-all inline-flex items-center gap-3 text-sm">
+            <Link to="/vehiculos" className="bg-primary text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:bg-teal-700 hover:shadow-xl transition-all inline-flex items-center gap-3 text-sm w-fit">
               Ver Catálogo de Vehículos <ArrowRight />
             </Link>
           </div>
