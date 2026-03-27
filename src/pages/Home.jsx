@@ -15,28 +15,28 @@ const activities = [
     emoji: '⛵',
     title: 'Paseo en Yate privado',
     desc: 'Navega hacia Isla Fuerte e Isla Palma con tripulación experta y cóckteles a bordo.',
-    img: '/assets/ACTIVIDADES1.jpeg',
+    img: '/assets/ACTIVIDADES1.webp',
     color: 'from-sky-900/80 to-sky-700/60',
   },
   {
     emoji: '🤿',
     title: 'Buceo y Snorkel VIP',
     desc: 'Arrecifes de coral únicos del Caribe colombiano accesibles solo por barco privado.',
-    img: '/assets/ACTIVIDADES2.jpeg',
+    img: '/assets/ACTIVIDADES2.webp',
     color: 'from-teal-900/80 to-teal-700/60',
   },
   {
     emoji: '🏖️',
     title: 'Playas Vírgenes',
     desc: 'Escóndete en las playas secretas de Moñitos y Coveñas sin aglomeraciones.',
-    img: '/assets/HOTELISLABONITAACTIVIDADES1.jpeg',
+    img: '/assets/HOTELISLABONITAACTIVIDADES1.webp',
     color: 'from-amber-900/80 to-orange-700/60',
   },
   {
     emoji: '🌿',
     title: 'Ecoturismo & Manglares',
     desc: 'Explora ecosistemas de manglares únicos en la costa de Córdoba en lancha eléctrica.',
-    img: '/assets/HOTELISLABONITAACTIVIDADES.jpeg',
+    img: '/assets/HOTELISLABONITAACTIVIDADES.webp',
     color: 'from-green-900/80 to-emerald-700/60',
   },
 ];
@@ -49,25 +49,22 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Vaniexpress | Tours y Transporte Privado – Caribe Colombiano</title>
-        <meta name="description" content="Vaniexpress: tours VIP y transporte privado por Isla Fuerte, Moñitos, Coveñas e Isla Palma. Hoteles exclusivos y vehículos de lujo en el Caribe colombiano." />
-        <meta name="keywords" content="tours caribe colombiano, transporte privado colombia, isla fuerte, moñitos cordoba, coveñas, isla palma, agencia de viajes caribe, vaniexpress" />
+        <title>Vaniexpress | Tours, Hoteles y Transporte Privado – Caribe Colombiano</title>
+        <meta name="description" content="Vaniexpress: tours VIP, hoteles y transporte privado seguro por Isla Fuerte, Moñitos, Coveñas, Tolú, San Bernardo del Viento y más destinos del Caribe colombiano." />
+        <meta name="keywords" content="tours caribe colombiano, hoteles exclusivos caribe, transporte privado colombia, isla fuerte, moñitos cordoba, coveñas, tolu, san bernardo del viento, playas del frances, turismo necocli, arboletes, agencia de viajes caribe, vaniexpress" />
       </Helmet>
 
       {/* ─── HERO ─── */}
       <header className="relative w-full h-screen overflow-hidden flex items-end pb-24 bg-slate-900">
         <div className="absolute inset-0 z-0">
           <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-            <source src="/assets/ISLAPALMAVIDEO.mp4" type="video/mp4" />
+            <source src="/assets/VIDEOHERO.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/10"></div>
         </div>
 
         <div className="relative z-10 w-full px-8 md:px-16 max-w-[1920px] mx-auto pt-24">
-          <span className="inline-block text-white/60 font-semibold uppercase tracking-[0.3em] text-xs mb-5">
-            Isla Fuerte · Moñitos · Coveñas · Isla Palma
-          </span>
           <h1 className="font-headline text-white text-6xl sm:text-7xl md:text-8xl font-extrabold tracking-tighter leading-[0.9] mb-6 drop-shadow-2xl">
             Visita Colombia
           </h1>
@@ -76,7 +73,7 @@ const Home = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
             <a
-              href="https://wa.me/573000000000?text=Hola,%20quiero%20planear%20un%20tour%20por%20el%20Caribe%20colombiano%20con%20Vaniexpress"
+              href="https://wa.me/573128869088?text=Hola,%20quiero%20planear%20un%20tour%20por%20el%20Caribe%20colombiano%20con%20Vaniexpress"
               target="_blank" rel="noreferrer"
               className="w-fit inline-flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-sm shadow-2xl hover:bg-primary hover:text-white transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
             >
@@ -111,7 +108,7 @@ const Home = () => {
               className="group relative overflow-hidden shadow-inner hover:shadow-2xl transition-all duration-500 cursor-pointer"
               style={{ height: '380px' }}
             >
-              <img src={act.img} alt={act.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <img src={act.img} alt={`Experiencia y Tour: ${act.title} en el Caribe Colombiano con Vaniexpress`} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               <div className={`absolute inset-0 bg-gradient-to-r ${act.color}`}></div>
               {/* Decorative number */}
               <div className="absolute top-6 right-6 text-white/20 font-black text-7xl leading-none select-none">0{i+1}</div>
@@ -122,7 +119,7 @@ const Home = () => {
                 </div>
                 <p className="text-white/80 text-sm leading-relaxed font-light mb-6 max-w-sm">{act.desc}</p>
                 <a
-                  href="https://wa.me/573000000000?text=Hola,%20quiero%20reservar%20una%20actividad%20en%20el%20Caribe%20con%20Vaniexpress"
+                  href="https://wa.me/573128869088?text=Hola,%20quiero%20reservar%20una%20actividad%20en%20el%20Caribe%20con%20Vaniexpress"
                   target="_blank" rel="noreferrer"
                   onClick={e => e.stopPropagation()}
                   className="inline-flex items-center gap-2 bg-white/20 border border-white/30 text-white text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full backdrop-blur hover:bg-white hover:text-teal-800 transition-all w-fit"
@@ -145,16 +142,20 @@ const Home = () => {
               Flota Ampliada: <br />de 4 a 40 Pasajeros
             </h2>
             <p className="text-on-surface-variant text-base md:text-lg leading-relaxed mb-8 font-light">
-              Nuestra flota se expande para cubrir todas tus necesidades. Desde nuestra nueva **Van VIP de 19 pasajeros** y **Buses de 40**, hasta Minivanes de 10 y vehículos ejecutivos. Todo con la garantía de confort y seguridad Vaniexpress.
+              Nuestra flota se fortalece desde la base. Conoce nuestro exclusivo <span className="font-bold text-slate-700">Sedán Ejecutivo</span> para viajes premium de 4 puestos, saltando a cómodas Minivanes de 10, nuestra flamante <span className="font-bold text-slate-700">Van VIP de 19 pasajeros</span> y robustos <span className="font-bold text-slate-700">Buses de 40</span> para grupos masivos. Sea cual sea el tamaño de tu viaje, te llevamos con la misma calidad.
             </p>
             <ul className="space-y-4 mb-10">
               <li className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-white shadow flex items-center justify-center font-bold text-primary">🚍</div>
-                <span className="font-semibold text-on-surface text-sm">Buses de Gran Turismo (40 Pax) y Vans VIP (19 Pax)</span>
+                <div className="w-10 h-10 rounded-xl bg-white shadow flex items-center justify-center font-bold text-primary">🚘</div>
+                <span className="font-semibold text-on-surface text-sm">Sedán Ejecutivo Premium y SUV (4 Pax)</span>
               </li>
               <li className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-xl bg-white shadow flex items-center justify-center font-bold text-primary">🚐</div>
-                <span className="font-semibold text-on-surface text-sm">Minivanes Executive (10 Pax) y SUV/Sedán (4 Pax)</span>
+                <span className="font-semibold text-on-surface text-sm">Minivanes Executive (10 Pax) y Vans VIP (19 Pax)</span>
+              </li>
+              <li className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-xl bg-white shadow flex items-center justify-center font-bold text-primary">🚍</div>
+                <span className="font-semibold text-on-surface text-sm">Buses de Gran Turismo (40 Pax)</span>
               </li>
             </ul>
             <Link to="/vehiculos" className="bg-primary text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:bg-teal-700 hover:shadow-xl transition-all inline-flex items-center gap-3 text-sm w-fit">
@@ -163,35 +164,57 @@ const Home = () => {
           </div>
 
           {/* Visual Showcase — Grid of top vehicles */}
-          <div className="order-2 md:order-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="sm:col-span-2 relative z-10 bg-white p-3 rounded-3xl shadow-xl transition-all hover:shadow-2xl">
-              <div className="overflow-hidden rounded-2xl w-full h-[250px] md:h-[300px] relative">
-                <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+          <div className="order-2 md:order-2 flex flex-col gap-4">
+            
+            {/* Sedan (Top) */}
+            <Link to="/vehiculos" className="relative z-10 bg-white p-3 rounded-3xl shadow-xl transition-all hover:shadow-2xl group block cursor-pointer">
+              <div className="overflow-hidden rounded-2xl w-full h-[250px] md:h-[300px] relative bg-slate-900 flex items-center justify-center">
+                <img src="/assets/VEHICULO3.webp" alt="Sedán Ejecutivo Premium" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90" />
+                <div className="absolute top-3 right-3 bg-primary text-white text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-tighter shadow-sm z-20">
+                  Sedán Premium
+                </div>
+              </div>
+              <div className="p-3 pb-1">
+                <p className="font-headline font-extrabold text-lg text-slate-800">Sedán Ejecutivo</p>
+                <p className="text-slate-400 text-[10px] uppercase font-bold tracking-widest">Premium Selection · 4 Pasajeros</p>
+              </div>
+            </Link>
+
+            {/* Van VIP */}
+            <Link to="/vehiculos" className="relative z-10 bg-white p-3 rounded-3xl shadow-xl transition-all hover:shadow-2xl group block cursor-pointer">
+              <div className="overflow-hidden rounded-2xl w-full h-[250px] md:h-[300px] relative bg-slate-900">
+                <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90">
                   <source src={specialVan.video} type="video/mp4" />
                 </video>
                 <div className="absolute top-3 right-3 bg-primary text-white text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-tighter shadow-sm z-20">
                   Van VIP
                 </div>
               </div>
-              <div className="p-3">
+              <div className="p-3 pb-1">
                 <p className="font-headline font-extrabold text-lg text-slate-800">{specialVan.name}</p>
                 <p className="text-slate-400 text-[10px] uppercase font-bold tracking-widest">{specialVan.capacity}</p>
               </div>
-            </div>
+            </Link>
+            
             {/* Bus & Minivan minis */}
-            <div className="bg-white p-2 rounded-2xl shadow-md border border-slate-50">
-              <img src="/assets/VEHICULOSBUS.jpeg" alt="Bus Vaniexpress" className="aspect-video w-full object-cover rounded-xl mb-3 shadow-sm" />
-              <p className="font-bold text-slate-800 text-xs px-1">Bus Gran Turismo</p>
-              <p className="text-slate-400 text-[9px] px-1 font-bold uppercase">40 Pasajeros</p>
-            </div>
-            <div className="bg-white p-2 rounded-2xl shadow-md border border-slate-50">
-              <div className="aspect-video w-full overflow-hidden rounded-xl mb-3 shadow-sm">
-                <video autoPlay loop muted playsInline className="w-full h-full object-cover scale-150">
-                  <source src="/assets/VEHICULOSMINIVANVIDEO.mp4" type="video/mp4" />
-                </video>
-              </div>
-              <p className="font-bold text-slate-800 text-xs px-1">Minivan Executive</p>
-              <p className="text-slate-400 text-[9px] px-1 font-bold uppercase">10 Pasajeros</p>
+            <div className="grid grid-cols-2 gap-2 sm:gap-4">
+               <Link to="/vehiculos" className="bg-white p-2 rounded-2xl shadow-md border border-slate-50 relative overflow-hidden group block cursor-pointer">
+                <div className="aspect-video w-full overflow-hidden rounded-xl mb-3 shadow-sm bg-slate-900 relative">
+                  <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover scale-150 transition-transform duration-1000 group-hover:scale-110 opacity-90">
+                    <source src="/assets/VEHICULOSMINIVANVIDEO.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <p className="font-bold text-slate-800 text-[10px] sm:text-xs px-1 leading-tight sm:leading-normal">Minivan</p>
+                <p className="text-slate-400 text-[8px] sm:text-[9px] px-1 font-bold uppercase mb-1">10 Pax</p>
+              </Link>
+
+              <Link to="/vehiculos" className="bg-white p-2 rounded-2xl shadow-md border border-slate-50 relative overflow-hidden group block cursor-pointer">
+                <div className="aspect-video w-full overflow-hidden rounded-xl mb-3 shadow-sm bg-slate-900 relative">
+                   <img src="/assets/VEHICULOSBUS.webp" alt="Bus Vaniexpress" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-90" />
+                </div>
+                <p className="font-bold text-slate-800 text-[10px] sm:text-xs px-1 leading-tight sm:leading-normal">Bus Turismo</p>
+                <p className="text-slate-400 text-[8px] sm:text-[9px] px-1 font-bold uppercase mb-1">40 Pax</p>
+              </Link>
             </div>
           </div>
         </div>
@@ -213,7 +236,7 @@ const Home = () => {
               Isla Fuerte, Moñitos, Coveñas, Isla Palma — diseñamos el itinerario perfecto con transporte VIP incluido.
             </p>
             <a
-              href="https://wa.me/573000000000?text=Hola,%20quiero%20información%20sobre%20tours%20de%20Vaniexpress"
+              href="https://wa.me/573128869088?text=Hola,%20quiero%20información%20sobre%20tours%20de%20Vaniexpress"
               target="_blank" rel="noreferrer"
               className="inline-flex items-center gap-3 bg-white text-teal-800 px-10 py-4 rounded-2xl font-bold text-base hover:scale-105 hover:shadow-xl transition-all"
             >
@@ -225,6 +248,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+
     </>
   );
 };

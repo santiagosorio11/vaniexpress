@@ -5,7 +5,7 @@ const Hero = () => {
     <section className="relative w-full min-h-screen flex items-center justify-center pt-32 pb-20 overflow-hidden">
       {/* Background Video */}
       <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover z-0">
-        <source src="/assets/ISLAPALMAVIDEO.mp4" type="video/mp4" />
+        <source src="/assets/VIDEOHERO.mp4" type="video/mp4" />
       </video>
       {/* Glassmorphism overlay */}
       <div className="absolute inset-0 bg-black/30 backdrop-blur-sm z-0"></div>
@@ -27,7 +27,7 @@ const Hero = () => {
           <div className="w-full md:w-px h-px md:h-12 bg-white/20 mx-4"></div>
           
           <a
-            href="https://wa.me/573000000000?text=Hola,%20me%20gustaría%20cotizar%20un%20viaje%20con%20Vaniexpress."
+            href="https://wa.me/573128869088?text=Hola,%20me%20gustaría%20cotizar%20un%20viaje%20con%20Vaniexpress."
             target="_blank"
             rel="noopener noreferrer"
             className="w-full md:w-auto bg-primary hover:bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(14,165,233,0.4)] flex items-center justify-center gap-2"

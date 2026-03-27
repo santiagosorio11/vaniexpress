@@ -21,8 +21,8 @@ const HotelDetail = () => {
   return (
     <>
       <Helmet>
-        <title>{hotel.name} – {hotel.location} | Tours Caribe Colombiano | Vaniexpress</title>
-        <meta name="description" content={`${hotel.shortDesc} Reserva con transporte privado incluido. Vaniexpress tours Caribe colombiano.`} />
+        <title>{hotel.name} en {hotel.location} | Hotel y Tours | Vaniexpress</title>
+        <meta name="description" content={`Reserva en el Hotel ${hotel.name} ubicado en ${hotel.location}. ${hotel.shortDesc} Cotiza tu paquete VIP con tours y transporte privado incluido desde cualquier ciudad a la costa caribe.`} />
       </Helmet>
       <div className="bg-[#f8fafa] min-h-screen font-sans text-slate-800">
         {/* Hero Section */}
@@ -32,7 +32,7 @@ const HotelDetail = () => {
              <source src={hotel.videos[0]} type="video/mp4" />
            </video>
         ) : (
-           <img src={hotel.mainImage} alt={hotel.name} className="absolute inset-0 w-full h-full object-cover z-0" />
+           <img src={hotel.mainImage} alt={`Fachada e instalaciones de ${hotel.name} en ${hotel.location} - Hospedaje y Tours Vaniexpress`} className="absolute inset-0 w-full h-full object-cover z-0" />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-[#00201c] via-[#00201c]/40 to-transparent z-10"></div>
         <div className="absolute bottom-0 w-full p-8 md:p-16 z-20 max-w-7xl mx-auto">
@@ -85,14 +85,14 @@ const HotelDetail = () => {
                       {/* Imagen Principal */}
                       <SwiperSlide>
                          <div className="aspect-[4/4.5] sm:aspect-[3/4] rounded-[2.5rem] overflow-hidden shadow-xl border border-white max-h-[500px] sm:max-h-none">
-                            <img src={hotel.mainImage} alt={hotel.name} className="w-full h-full object-cover" />
+                            <img src={hotel.mainImage} alt={`Vista interior del lobby y zonas comunes de ${hotel.name} - Vaniexpress`} className="w-full h-full object-cover" />
                          </div>
                       </SwiperSlide>
 
                       {hotel.gallery && hotel.gallery.map((img, i) => (
                         <SwiperSlide key={`img-${i}`}>
                            <div className="aspect-[4/4.5] sm:aspect-[3/4] rounded-[2.5rem] overflow-hidden shadow-xl border border-white max-h-[500px] sm:max-h-none">
-                              <img src={img} alt={`Galería ${i}`} className="w-full h-full object-cover" />
+                              <img src={img} alt={`Foto de galería ${i} del hotel ${hotel.name} en ${hotel.location} - Vaniexpress`} className="w-full h-full object-cover" />
                            </div>
                         </SwiperSlide>
                       ))}
@@ -145,7 +145,7 @@ const HotelDetail = () => {
                 <h3 className="text-2xl font-black text-slate-800 mb-6 drop-shadow-sm">Reserva tu Estadía</h3>
                 <p className="text-slate-500 font-light mb-8 text-sm">Organiza tu transporte VIP y alojamiento de lujo con nosotros directamente por WhatsApp.</p>
                 
-                <a href={`https://wa.me/573000000000?text=Hola,%20quisiera%20reservar%20en%20${hotel.name}`} target="_blank" rel="noreferrer" className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-[#00A896] hover:from-[#00A896] hover:to-primary text-white py-5 px-6 rounded-2xl font-bold text-lg transition-all shadow-[0_10px_30px_rgba(0,168,150,0.3)] hover:shadow-[0_15px_40px_rgba(0,168,150,0.5)] transform hover:-translate-y-1">
+                <a href={`https://wa.me/573128869088?text=Hola,%20quisiera%20reservar%20en%20${hotel.name}`} target="_blank" rel="noreferrer" className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-[#00A896] hover:from-[#00A896] hover:to-primary text-white py-5 px-6 rounded-2xl font-bold text-lg transition-all shadow-[0_10px_30px_rgba(0,168,150,0.3)] hover:shadow-[0_15px_40px_rgba(0,168,150,0.5)] transform hover:-translate-y-1">
                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" /><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" /></svg>
                    Reservar vía WhatsApp
                 </a>
@@ -155,7 +155,7 @@ const HotelDetail = () => {
                       <h4 className="font-bold text-sm tracking-widest uppercase text-slate-400 mb-4 border-b border-slate-100 pb-2">Gastronomía</h4>
                       <div className="space-y-4">
                          {hotel.food.map((img, i) => (
-                            <img key={i} src={img} alt="Comida local" className="w-full h-32 object-cover rounded-2xl hover:scale-105 transition-transform cursor-pointer shadow-md" />
+                            <img key={i} src={img} alt={`Gastronomía en restaurante de ${hotel.name} - Vaniexpress`} className="w-full h-32 object-cover rounded-2xl hover:scale-105 transition-transform cursor-pointer shadow-md" />
                          ))}
                       </div>
                    </div>
@@ -179,7 +179,7 @@ const HotelDetail = () => {
               Reserva tu estadía con transporte privado Vaniexpress incluido desde tu ciudad. Atención personalizada y precio especial garantizado.
             </p>
             <a
-              href={`https://wa.me/573000000000?text=Hola%20Vaniexpress,%20quiero%20reservar%20en%20${encodeURIComponent(hotel.name)}%20en%20${encodeURIComponent(hotel.location)}%20con%20transporte%20incluido`}
+              href={`https://wa.me/573128869088?text=Hola%20Vaniexpress,%20quiero%20reservar%20en%20${encodeURIComponent(hotel.name)}%20en%20${encodeURIComponent(hotel.location)}%20con%20transporte%20incluido`}
               target="_blank" rel="noreferrer"
               className="inline-flex items-center gap-3 bg-white text-teal-800 px-10 py-4 rounded-2xl font-bold text-base hover:scale-105 hover:shadow-xl transition-all"
             >

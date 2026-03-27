@@ -50,8 +50,9 @@ const Navbar = () => {
         {/* ── Fila principal (Siempre visible) ── */}
         <div className="flex items-center justify-between px-6 py-4">
           {/* Logo */}
-          <Link to="/" className={`font-black text-xl tracking-tighter whitespace-nowrap transition-colors ${textColor}`}>
-            VANI<span className={accentColor}>EXPRESS</span>
+          <Link to="/" className={`flex items-center gap-2 font-black text-xl tracking-tighter whitespace-nowrap transition-colors ${textColor}`}>
+            <img src="/favicon.png" alt="Vaniexpress Logo" className="w-9 h-9 object-contain drop-shadow" />
+            <span>VANI<span className={accentColor}>EXPRESS</span></span>
           </Link>
 
           {/* Links — solo desktop */}
@@ -64,7 +65,7 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
             {/* CTA — desktop */}
             <a
-              href="https://wa.me/573000000000?text=Hola,%20deseo%20planear%20un%20viaje%20por%20el%20Caribe%20con%20Vaniexpress"
+              href="https://wa.me/573128869088?text=Hola,%20deseo%20planear%20un%20viaje%20por%20el%20Caribe%20con%20Vaniexpress"
               target="_blank" rel="noreferrer"
               className={`hidden md:flex items-center gap-2 px-6 py-2.5 rounded-full font-bold text-sm transition-all hover:scale-105 whitespace-nowrap ${
                 scrolled || menuOpen
@@ -131,7 +132,7 @@ const Navbar = () => {
           {/* CTA WhatsApp Mobile */}
           <div className="max-w-xs mx-auto">
             <a
-              href="https://wa.me/573000000000?text=Hola,%20deseo%20planear%20un%20viaje%20por%20el%20Caribe%20con%20Vaniexpress"
+              href="https://wa.me/573128869088?text=Hola,%20deseo%20planear%20un%20viaje%20por%20el%20Caribe%20con%20Vaniexpress"
               target="_blank" rel="noreferrer"
               onClick={() => setMenuOpen(false)}
               className="flex items-center justify-center gap-3 w-full py-3.5 bg-gradient-to-r from-primary to-teal-500 text-white font-black text-sm rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-primary/20"

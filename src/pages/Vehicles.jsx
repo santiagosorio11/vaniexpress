@@ -19,6 +19,8 @@ const Vehicles = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const ownerVehicle = vehicles.find(v => v.id === 'auto-sedan-2');
+  const otherVehicles = vehicles.filter(v => v.id !== 'auto-sedan-2');
   const minivan = fleetGroups[0].vehicles.find(v => v.id === 'minivan-10-pasajeros');
   const van = fleetGroups[0].vehicles.find(v => v.id === 'van-19-pasajeros');
   const bus = fleetGroups[1].vehicles[0];
@@ -26,8 +28,9 @@ const Vehicles = () => {
   return (
     <>
       <Helmet>
-        <title>Flota Vaniexpress | Transporte Privado VIP Caribe Colombiano</title>
-        <meta name="description" content="Nuestra flota desde sedanes ejecutivos hasta buses de 40 pasajeros. Confort, seguridad y puntualidad en todo el Caribe." />
+        <title>Flota Vaniexpress | Transporte Privado VIP Transporte Caribe Colombiano</title>
+        <meta name="description" content="Nuestra flota de alquiler: sedanes corporativos, vans ejecutivas, y autobuses de gran turismo para transporte desde Bogotá a playas del Caribe: Tolú, Coveñas, Moñitos, Necoclí." />
+        <meta name="keywords" content="alquiler vans caribe, transporte privado coveñas, transporte tolu, alquiler bus medellin tolu, vans monitos, vaniexpress flota" />
       </Helmet>
 
       <main className="bg-[#f8fafa] text-slate-900 font-sans pb-32">
@@ -36,17 +39,14 @@ const Vehicles = () => {
         <header className="relative w-full h-screen flex items-center overflow-hidden bg-slate-900">
           <div className="absolute inset-0 z-0">
             <img
-              src="/assets/VEHICULOS1.jpeg"
-              alt="Flota Vaniexpress"
+              src="/assets/VEHICULO3.webp"
+              alt="Vehículos de Flota Exclusiva de Transporte Turístico Vaniexpress"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
           </div>
           <div className="relative z-10 px-8 md:px-16 max-w-[1920px] mx-auto w-full pt-28">
-            <span className="inline-block text-white/60 font-bold tracking-[0.25em] uppercase text-xs mb-5">
-              Experiencias en Movimiento · VIP
-            </span>
             <h1 className="text-white font-headline text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tighter mb-6 leading-[0.95] max-w-2xl">
               Nuestra Flota <br/><span className="text-primary drop-shadow-[0_0_20px_rgba(45,212,191,0.2)]">de Alta Gama</span>
             </h1>
@@ -67,37 +67,85 @@ const Vehicles = () => {
         {/* ─── Contenedor de Catálogo ─── */}
         <div id="catalogo" className="max-w-[1920px] mx-auto px-4 md:px-16 py-12 md:py-24 space-y-32">
           
-          {/* FASE 1: Carros 4 Pax */}
+          {/* VEHÍCULO DESTACADO (SELECCIÓN EJECUTIVA) */}
+          {ownerVehicle && (
+            <section>
+              <div className="flex items-center gap-4 mb-10 px-4">
+                <h2 className="text-xs font-black uppercase tracking-[0.5em] text-primary whitespace-nowrap">Selección Ejecutiva</h2>
+                <div className="h-px bg-primary/20 flex-grow"></div>
+              </div>
+
+              <div className="bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-2xl relative flex flex-col lg:flex-row border border-slate-800/50">
+               <div className="w-full lg:w-1/2 aspect-[4/3] lg:aspect-auto lg:h-[550px] relative overflow-hidden">
+                  <img src={ownerVehicle.img} alt={`Alquiler de ${ownerVehicle.name} - Transporte VIP Vaniexpress`} className="absolute inset-0 w-full h-full object-cover opacity-90" />
+               </div>
+               <div className="w-full lg:w-1/2 p-6 md:p-10 flex flex-col justify-center items-start text-left bg-gradient-to-br from-slate-900 to-[#101918]">
+                  <span className="bg-primary/20 text-primary text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest border border-primary/30 mb-4 inline-block shadow-[0_0_20px_rgba(45,212,191,0.25)]">Premium Selection</span>
+                  <h2 className="text-white font-headline text-3xl md:text-5xl font-black tracking-tighter mb-4 leading-[0.85]">
+                    {ownerVehicle.name}
+                  </h2>
+                  <p className="text-slate-400 text-sm md:text-base font-light leading-relaxed mb-6 max-w-lg">
+                    {ownerVehicle.shortDesc}
+                  </p>
+                  
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-3 mb-8 w-full">
+                     {ownerVehicle.specs.map((s, i) => (
+                        <div key={i} className="flex items-center gap-2 text-slate-300 font-bold text-xs">
+                           <div className="w-1.5 h-1.5 rounded-full bg-primary/40"></div>
+                           {s}
+                        </div>
+                     ))}
+                  </div>
+
+                  <a 
+                    href={`https://wa.me/573128869088?text=Hola,%20quiero%20reservar%20el%20vehículo%20${encodeURIComponent(ownerVehicle.name)}`}
+                    target="_blank" rel="noreferrer"
+                    className="w-full md:w-auto flex items-center justify-center gap-3 bg-primary text-white px-8 py-3.5 rounded-2xl font-black text-sm hover:bg-teal-700 transition-all shadow-[0_15px_40px_rgba(45,212,191,0.3)]"
+                  >
+                    <WaIcon /> Reservar Ahora <ArrowRight />
+                  </a>
+               </div>
+              </div>
+            </section>
+          )}
+
+          {/* OTROS VEHÍCULOS 4 PAX */}
           <section>
-            <div className="flex items-center gap-4 mb-16 px-4">
+            <div className="flex items-center gap-4 mb-10 px-4">
               <h2 className="text-xs font-black uppercase tracking-[0.5em] text-slate-400 whitespace-nowrap">Línea Ejecutiva 4 Pasajeros</h2>
               <div className="h-px bg-slate-200 flex-grow"></div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {vehicles.map((v) => (
-                <div key={v.id} className="bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-sm hover:shadow-2xl transition-all flex flex-col group">
-                  <div className="aspect-[16/10] relative rounded-3xl overflow-hidden mb-8 bg-slate-100">
-                    <img src={v.img} alt={v.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-                    <div className="absolute top-4 right-4">
-                      <span className="bg-white/95 backdrop-blur text-slate-900 text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest border border-slate-100 shadow-xl">{v.capacity}</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
+              {otherVehicles.map((v) => (
+                <div key={v.id} className="bg-slate-900 rounded-[2rem] overflow-hidden shadow-2xl relative flex flex-col group transform hover:-translate-y-1 transition-all duration-500 border border-slate-800/50">
+                  <div className="w-full aspect-[4/3] relative overflow-hidden">
+                    <img src={v.img} alt={`Transporte y Alquiler de ${v.name} en Colombia - Vaniexpress`} className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-[3000ms]" />
+                    <div className="absolute top-4 left-4 z-10">
+                      <span className="bg-primary/20 text-primary text-[10px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest border border-primary/30 shadow-[0_0_20px_rgba(45,212,191,0.25)]">{v.capacity}</span>
                     </div>
                   </div>
-                  <div className="flex-grow">
-                     <h3 className="font-headline text-3xl font-black text-slate-900 mb-2 tracking-tight group-hover:text-primary transition-colors">{v.name}</h3>
-                     <p className="text-slate-500 text-sm font-light leading-relaxed mb-8">{v.shortDesc}</p>
+                  <div className="p-6 flex flex-col flex-grow text-left bg-gradient-to-br from-slate-900 to-[#101918]">
+                     <h3 className="font-headline text-2xl font-black text-white mb-2 tracking-tight leading-tight">{v.name}</h3>
+                     <p className="text-slate-400 text-[13px] md:text-sm font-light leading-relaxed mb-5">{v.shortDesc}</p>
                      
-                     <div className="flex flex-wrap gap-2 mb-10">
+                     <div className="grid grid-cols-2 gap-2 mb-6 w-full flex-grow">
                         {v.specs.map((spec, i) => (
-                          <span key={i} className="text-[10px] font-bold text-slate-600 bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-100 italic">
-                            {spec}
-                          </span>
+                          <div key={i} className="flex items-center gap-2 text-slate-300 font-bold text-[10px]">
+                           <div className="w-1 h-1 rounded-full bg-primary/40 flex-shrink-0"></div>
+                           {spec}
+                          </div>
                         ))}
                      </div>
+                     
+                     <a 
+                       href={`https://wa.me/573128869088?text=Hola,%20quiero%20reservar%20el%20vehículo%20${encodeURIComponent(v.name)}`} 
+                       target="_blank" rel="noreferrer" 
+                       className="w-full flex items-center justify-center gap-2 bg-primary text-white py-3.5 rounded-xl font-black text-sm hover:bg-teal-700 transition-all shadow-[0_15px_40px_rgba(45,212,191,0.3)]"
+                     >
+                       <WaIcon /> Reservar Ahora <ArrowRight />
+                     </a>
                   </div>
-                  <a href={`https://wa.me/573000000000?text=Hola,%20quiero%20reservar%20el%20vehículo%20${encodeURIComponent(v.name)}`} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-3 bg-slate-900 text-white py-5 rounded-2xl font-bold text-sm hover:bg-primary transition-all shadow-lg">
-                    Reservar Ahora <ArrowRight />
-                  </a>
                 </div>
               ))}
             </div>
@@ -105,47 +153,47 @@ const Vehicles = () => {
 
           {/* FASE 2: Minivan y Van (Corrección de Videos recortados) */}
           <section>
-            <div className="flex items-center gap-4 mb-16 px-4">
+            <div className="flex items-center gap-4 mb-10 px-4">
               <h2 className="text-xs font-black uppercase tracking-[0.5em] text-primary whitespace-nowrap">Transporte Grupal VIP</h2>
               <div className="h-px bg-primary/20 flex-grow"></div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 max-w-6xl mx-auto">
                {[minivan, van].map((v) => (
-                 <div key={v.id} className="bg-white rounded-[3rem] overflow-hidden border border-slate-100 shadow-xl hover:shadow-2xl transition-all flex flex-col h-full transform hover:-translate-y-2 duration-500">
-                    <div className="aspect-square md:aspect-[16/10] relative bg-slate-900 overflow-hidden group">
+                 <div key={v.id} className="bg-slate-900 rounded-[2rem] overflow-hidden shadow-2xl relative flex flex-col group transform hover:-translate-y-1 transition-all duration-500 border border-slate-800/50">
+                    <div className="w-full aspect-[4/3] relative overflow-hidden">
                       {v.video ? (
-                        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-[3000ms]">
                           <source src={v.video} type="video/mp4" />
                         </video>
                       ) : (
-                        <img src={v.img} alt={v.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                        <img src={v.img} alt={`Servicio de ${v.name} para Transporte Turístico y Paseos en el Caribe`} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-[3000ms]" />
                       )}
-                      <div className="absolute top-6 left-6 z-10">
-                        <span className="bg-primary px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-xl text-white border border-primary/20">{v.capacity}</span>
+                      
+                      <div className="absolute top-4 left-4 z-10">
+                        <span className="bg-primary/20 text-primary text-[10px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest border border-primary/30 shadow-[0_0_20px_rgba(45,212,191,0.25)]">{v.capacity}</span>
                       </div>
                     </div>
-                    <div className="p-12 flex flex-col flex-grow justify-between bg-gradient-to-b from-white to-[#fdfdfd]">
-                      <div>
-                        <h3 className="font-headline text-4xl font-black text-slate-900 mb-4 tracking-tight leading-tight">{v.name}</h3>
-                        <p className="text-slate-500 text-lg leading-relaxed font-light mb-8 italic">"{v.shortDesc}"</p>
+
+                    <div className="p-6 flex flex-col flex-grow text-left bg-gradient-to-br from-slate-900 to-[#101918]">
+                        <h3 className="font-headline text-2xl font-black text-white mb-2 tracking-tight leading-tight">{v.name}</h3>
+                        <p className="text-slate-400 text-[13px] md:text-sm font-light leading-relaxed mb-5">{v.shortDesc}</p>
                         
-                        <div className="grid grid-cols-2 gap-3 mb-10">
+                        <div className="grid grid-cols-2 gap-2 mb-6 w-full flex-grow">
                           {v.specs.map((spec, i) => (
-                            <div key={i} className="flex items-center gap-2 text-[10px] font-bold text-slate-700 bg-slate-100 px-4 py-2 rounded-xl">
-                              <div className="w-1.5 h-1.5 rounded-full bg-primary/40"></div>
+                            <div key={i} className="flex items-center gap-2 text-slate-300 font-bold text-[10px]">
+                              <div className="w-1 h-1 rounded-full bg-primary/40 flex-shrink-0"></div>
                               {spec}
                             </div>
                           ))}
                         </div>
-                      </div>
 
                       <a
-                        href={`https://wa.me/573000000000?text=Hola,%20solicito%20presupuesto%20para%20${encodeURIComponent(v.name)}`}
+                        href={`https://wa.me/573128869088?text=Hola,%20solicito%20presupuesto%20para%20${encodeURIComponent(v.name)}`}
                         target="_blank" rel="noreferrer"
-                        className="flex items-center justify-center gap-4 bg-slate-900 text-white px-10 py-5 rounded-2xl font-bold text-base hover:bg-primary transition-all shadow-xl group/btn"
+                        className="w-full flex items-center justify-center gap-2 bg-primary text-white py-3.5 rounded-xl font-black text-sm hover:bg-teal-700 transition-all shadow-[0_15px_40px_rgba(45,212,191,0.3)]"
                       >
-                        <WaIcon /> Cotizar Ahora <span className="group-hover/btn:translate-x-1 transition-transform"><ArrowRight /></span>
+                         <WaIcon /> Cotizar Ahora <ArrowRight />
                       </a>
                     </div>
                  </div>
@@ -155,27 +203,27 @@ const Vehicles = () => {
 
           {/* FASE 3: Bus (Special Section) */}
           <section>
-            <div className="flex items-center gap-4 mb-16 px-4">
+            <div className="flex items-center gap-4 mb-10 px-4">
               <h2 className="text-xs font-black uppercase tracking-[0.5em] text-slate-400 whitespace-nowrap">Logística a Gran Escala</h2>
               <div className="h-px bg-slate-200 flex-grow"></div>
             </div>
 
-            <div className="bg-slate-900 rounded-[4rem] overflow-hidden shadow-2xl relative flex flex-col lg:flex-row group">
-               <div className="w-full lg:w-1/2 h-[400px] lg:h-auto relative overflow-hidden">
-                  <img src={bus.img} alt={bus.name} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-[3000ms]" />
+            <div className="bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-2xl relative flex flex-col lg:flex-row group">
+               <div className="w-full lg:w-1/2 h-[400px] lg:h-[550px] relative overflow-hidden">
+                  <img src={bus.img} alt={`Alquiler de ${bus.name} para excursiones a la playa - Transporte Masivo Vaniexpress`} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-[3000ms]" />
                </div>
-               <div className="w-full lg:w-1/2 p-12 md:p-20 flex flex-col justify-center items-start text-left bg-gradient-to-br from-slate-900 to-[#101918]">
-                  <span className="bg-primary/20 text-primary text-[10px] font-black px-5 py-2 rounded-full uppercase tracking-widest border border-primary/30 mb-8 inline-block shadow-[0_0_20px_rgba(45,212,191,0.25)]">{bus.capacity}</span>
-                  <h2 className="text-white font-headline text-5xl md:text-7xl font-black tracking-tighter mb-8 leading-[0.85]">
+               <div className="w-full lg:w-1/2 p-6 md:p-10 flex flex-col justify-center items-start text-left bg-gradient-to-br from-slate-900 to-[#101918]">
+                  <span className="bg-primary/20 text-primary text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest border border-primary/30 mb-4 inline-block shadow-[0_0_20px_rgba(45,212,191,0.25)]">{bus.capacity}</span>
+                  <h2 className="text-white font-headline text-3xl md:text-5xl font-black tracking-tighter mb-4 leading-[0.85]">
                     {bus.name}
                   </h2>
-                  <p className="text-slate-400 text-lg md:text-xl font-light leading-relaxed mb-12 max-w-lg">
+                  <p className="text-slate-400 text-sm md:text-base font-light leading-relaxed mb-6 max-w-lg">
                     {bus.shortDesc} Ideal para convenciones internacionales, congresos y logística corporativa masiva.
                   </p>
                   
-                  <div className="grid grid-cols-2 gap-x-10 gap-y-6 mb-16 w-full">
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-3 mb-8 w-full">
                      {bus.specs.map((s, i) => (
-                        <div key={i} className="flex items-center gap-3 text-slate-300 font-bold text-sm">
+                        <div key={i} className="flex items-center gap-2 text-slate-300 font-bold text-xs">
                            <div className="w-1.5 h-1.5 rounded-full bg-primary/40"></div>
                            {s}
                         </div>
@@ -183,9 +231,9 @@ const Vehicles = () => {
                   </div>
 
                   <a 
-                    href={`https://wa.me/573000000000?text=Solicitar%20Logística%20Masiva%20Bus%20Vaniexpress%2040%20Pasajeros`}
+                    href={`https://wa.me/573128869088?text=Solicitar%20Logística%20Masiva%20Bus%20Vaniexpress%2040%20Pasajeros`}
                     target="_blank" rel="noreferrer"
-                    className="w-full md:w-auto flex items-center justify-center gap-4 bg-primary text-white px-12 py-6 rounded-3xl font-black text-lg hover:bg-teal-700 transition-all shadow-[0_15px_40px_rgba(45,212,191,0.3)]"
+                    className="w-full md:w-auto flex items-center justify-center gap-3 bg-primary text-white px-8 py-3.5 rounded-2xl font-black text-sm hover:bg-teal-700 transition-all shadow-[0_15px_40px_rgba(45,212,191,0.3)]"
                   >
                     <WaIcon /> Consultar Logística <ArrowRight />
                   </a>
@@ -194,6 +242,32 @@ const Vehicles = () => {
           </section>
 
         </div>
+
+        {/* ─── CTA FINAL ─── */}
+        <section className="px-4 md:px-16 pb-12 md:pb-24 max-w-[1920px] mx-auto mt-20">
+          <div className="bg-gradient-to-br from-teal-800 to-teal-600 rounded-3xl p-12 lg:p-20 text-center relative overflow-hidden shadow-2xl">
+            <div className="absolute inset-0 opacity-10 pointer-events-none">
+              <div className="absolute top-0 left-0 w-80 h-80 bg-white rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2"></div>
+              <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-teal-300 rounded-full blur-[120px] translate-x-1/4 translate-y-1/4"></div>
+            </div>
+            <div className="relative z-10">
+              <span className="inline-block text-teal-200 font-bold tracking-widest uppercase text-xs mb-6">Transporte Vaniexpress</span>
+              <h2 className="text-3xl lg:text-5xl font-extrabold text-white mb-5 tracking-tighter">
+                ¿Necesitas un traslado personalizado?
+              </h2>
+              <p className="text-teal-100 text-base lg:text-lg mb-10 max-w-2xl mx-auto font-light">
+                Cotiza tu ruta específica por el Caribe colombiano. Estamos listos para llevarte con seguridad y estilo.
+              </p>
+              <a
+                href="https://wa.me/573128869088?text=Hola,%20quiero%20cotizar%20un%20traslado%20personalizado%20con%20Vaniexpress"
+                target="_blank" rel="noreferrer"
+                className="inline-flex items-center gap-3 bg-white text-teal-800 px-10 py-4 rounded-2xl font-bold text-base hover:scale-105 hover:shadow-xl transition-all"
+              >
+                <WaIcon /> Hablar con un Asesor de Flota
+              </a>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   );

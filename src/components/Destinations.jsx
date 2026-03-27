@@ -49,7 +49,7 @@ const Destinations = () => {
               <Link to={`/hotel/${h.id}`} className="block relative rounded-[2rem] aspect-[4/5.5] group overflow-hidden border border-slate-200/60 bg-slate-200 mb-4 transition-all duration-500">
                 <div className="absolute inset-0 w-full h-full">
                   {h.mainImage ? (
-                    <img src={h.mainImage} alt={h.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <img src={h.mainImage} alt={`Hotel ${h.name} ubicado en ${h.location} - Reserva tu transporte y tour con Vaniexpress`} className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                   ) : (
                     <video src={h.videos?.[0]} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                   )}

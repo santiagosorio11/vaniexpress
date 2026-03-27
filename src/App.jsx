@@ -7,6 +7,7 @@ import Destinations from './pages/Destinations';
 import HotelDetail from './pages/HotelDetail';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ReviewsSection from './components/Reviews/ReviewsSection';
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
               <Route path="/destinos" element={<Destinations />} />
               <Route path="/hotel/:id" element={<HotelDetail />} />
             </Routes>
+            <ReviewsSection />
           </main>
           <Footer />
         </div>

@@ -17,9 +17,9 @@ const Destinations = () => {
   return (
     <>
       <Helmet>
-        <title>Hoteles y Tours Caribe Colombiano | Isla Fuerte, Coveñas, Moñitos | Vaniexpress</title>
-        <meta name="description" content="Descubre los mejores hoteles en Isla Fuerte, Coveñas, Moñitos y San Antero con Vaniexpress. Tours personalizados y transporte privado incluido." />
-        <meta name="keywords" content="hoteles isla fuerte, hoteles coveñas, hoteles moñitos, tours caribe colombia, vaniexpress destinos" />
+        <title>Hoteles y Tours Caribe Colombiano | Isla Fuerte, Coveñas, Tolú, San Bernardo | Vaniexpress</title>
+        <meta name="description" content="Descubre los mejores hoteles y hospedaje en Isla Fuerte, Coveñas, Moñitos, Tolú, San Bernardo del Viento y San Antero. Tours, actividades y transporte privado." />
+        <meta name="keywords" content="hoteles isla fuerte, hoteles coveñas, hoteles moñitos, hospedaje san bernardo del viento, cabañas tolu, playas del frances, turismo caribe colombia, vaniexpress destinos" />
       </Helmet>
 
       <main className="bg-surface text-on-surface font-body pb-32">
@@ -28,16 +28,13 @@ const Destinations = () => {
         <header className="relative w-full h-screen flex items-center overflow-hidden bg-slate-900">
           <div className="absolute inset-0 z-0">
             <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-              <source src="/assets/HOTELCOVEMARVIDEO.mp4" type="video/mp4" />
+              <source src="/assets/HOTELLAPLAYITAISLAFUERTE.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
           </div>
 
           <div className="relative z-10 px-8 md:px-16 max-w-[1920px] mx-auto w-full pt-28">
-            <span className="inline-block text-white/60 font-bold tracking-[0.25em] uppercase text-xs mb-5">
-              Coveñas · Moñitos · Isla Fuerte · Isla Palma
-            </span>
             <h1 className="text-white font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter mb-5 leading-[0.95] max-w-3xl">
               Hoteles y Actividades<br />en el Caribe Colombiano
             </h1>
@@ -46,7 +43,7 @@ const Destinations = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
               <a
-                href="https://wa.me/573000000000?text=Hola,%20quiero%20reservar%20en%20un%20hotel%20con%20Vaniexpress"
+                href="https://wa.me/573128869088?text=Hola,%20quiero%20reservar%20en%20un%20hotel%20con%20Vaniexpress"
                 target="_blank" rel="noreferrer"
                 className="w-fit inline-flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-sm shadow-xl hover:bg-primary hover:text-white transition-all whitespace-nowrap"
               >
@@ -97,7 +94,7 @@ const Destinations = () => {
                 >
                   <div className="absolute inset-0 w-full h-full">
                     {h.mainImage ? (
-                      <img src={h.mainImage} alt={h.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                      <img src={h.mainImage} alt={`Hotel ${h.name} en ${h.location} - Reserva y Transporte con Vaniexpress`} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                     ) : (
                       <video src={h.videos?.[0]} autoPlay loop muted playsInline className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                     )}
@@ -155,7 +152,7 @@ const Destinations = () => {
                 </div>
               </div>
               <a
-                href="https://wa.me/573000000000?text=Hola,%20quiero%20planear%20una%20experiencia%20VIP%20con%20Vaniexpress"
+                href="https://wa.me/573128869088?text=Hola,%20quiero%20planear%20una%20experiencia%20VIP%20con%20Vaniexpress"
                 target="_blank" rel="noreferrer"
                 className="mt-10 bg-primary text-white px-8 py-4 rounded-2xl font-bold inline-flex items-center gap-3 hover:bg-teal-700 hover:shadow-lg transition-all text-sm"
               >
@@ -165,18 +162,18 @@ const Destinations = () => {
             <div className="grid grid-cols-2 gap-5 pointer-events-none">
               <div className="space-y-5">
                 <div className="rounded-3xl overflow-hidden aspect-[3/4] shadow-xl">
-                  <img src="/assets/ACTIVIDADES1.jpeg" alt="Snorkel" className="w-full h-full object-cover" />
+                  <img src="/assets/ACTIVIDADES1.webp" alt="Paseo en yate y snorkel VIP en Isla Fuerte con Vaniexpress" className="w-full h-full object-cover" />
                 </div>
                 <div className="rounded-3xl overflow-hidden aspect-[3/4] shadow-xl">
-                  <img src="/assets/HOTELISLABONITAACTIVIDADES.jpeg" alt="Perezoso" className="w-full h-full object-cover" />
+                  <img src="/assets/HOTELISLABONITAACTIVIDADES.webp" alt="Ecoturismo y avistamiento de perezosos en los manglares - Vaniexpress" className="w-full h-full object-cover" />
                 </div>
               </div>
               <div className="space-y-5 mt-12">
                 <div className="rounded-3xl overflow-hidden aspect-[3/4] shadow-xl">
-                  <img src="/assets/ACTIVIDADES2.jpeg" alt="Yates" className="w-full h-full object-cover" />
+                  <img src="/assets/ACTIVIDADES2.webp" alt="Yates de lujo y transporte para turismo en Coveñas y Tolú - Vaniexpress" className="w-full h-full object-cover" />
                 </div>
                 <div className="rounded-3xl overflow-hidden aspect-[3/4] shadow-xl">
-                  <img src="/assets/HOTELISLABONITAACTIVIDADES1.jpeg" alt="Playa" className="w-full h-full object-cover" />
+                  <img src="/assets/HOTELISLABONITAACTIVIDADES1.webp" alt="Playas vírgenes del Caribe colombiano y excursiones exclusivas" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -195,7 +192,7 @@ const Destinations = () => {
                 Escríbenos y armamos el itinerario completo — hotel + transporte privado desde cualquier ciudad de Colombia.
               </p>
               <a
-                href="https://wa.me/573000000000?text=Hola,%20quiero%20un%20paquete%20hotel%20+%20transporte%20con%20Vaniexpress"
+                href="https://wa.me/573128869088?text=Hola,%20quiero%20un%20paquete%20hotel%20+%20transporte%20con%20Vaniexpress"
                 target="_blank" rel="noreferrer"
                 className="inline-flex items-center gap-3 bg-white text-teal-800 px-10 py-4 rounded-2xl font-bold text-base hover:scale-105 hover:shadow-xl transition-all"
               >
