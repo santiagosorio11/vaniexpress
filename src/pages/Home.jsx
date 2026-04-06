@@ -6,36 +6,36 @@ import DestinationsCarousel from '../components/Destinations';
 
 const ArrowRight = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M5 12h14M12 5l7 7-7 7"/>
+    <path d="M5 12h14M12 5l7 7-7 7" />
   </svg>
 );
 
 const activities = [
   {
     emoji: '⛵',
-    title: 'Paseo en Yate privado',
-    desc: 'Navega hacia Isla Fuerte e Isla Palma con tripulación experta y cóckteles a bordo.',
+    title: 'Paseo en lancha privada',
+    desc: 'Navega hacia Isla Fuerte e Isla Palma con tripulación experta.',
     img: '/assets/ACTIVIDADES1.webp',
     color: 'from-sky-900/80 to-sky-700/60',
   },
   {
     emoji: '🤿',
-    title: 'Buceo y Snorkel VIP',
-    desc: 'Arrecifes de coral únicos del Caribe colombiano accesibles solo por barco privado.',
+    title: 'Buceo y Snorkel',
+    desc: 'Descubre los arrecifes de coral únicos del Caribe colombiano.',
     img: '/assets/ACTIVIDADES2.webp',
     color: 'from-teal-900/80 to-teal-700/60',
   },
   {
     emoji: '🏖️',
     title: 'Playas Vírgenes',
-    desc: 'Escóndete en las playas secretas de Moñitos y Coveñas sin aglomeraciones.',
+    desc: 'Escóndete en las playas de Moñitos y San Bernardo del Viento sin aglomeraciones.',
     img: '/assets/HOTELISLABONITAACTIVIDADES1.webp',
     color: 'from-amber-900/80 to-orange-700/60',
   },
   {
     emoji: '🌿',
     title: 'Ecoturismo & Manglares',
-    desc: 'Explora ecosistemas de manglares únicos en la costa de Córdoba en lancha eléctrica.',
+    desc: 'Explora ecosistemas de manglares únicos en la costa de Caribe.',
     img: '/assets/HOTELISLABONITAACTIVIDADES.webp',
     color: 'from-green-900/80 to-emerald-700/60',
   },
@@ -111,7 +111,7 @@ const Home = () => {
               <img src={act.img} alt={`Experiencia y Tour: ${act.title} en el Caribe Colombiano con Vaniexpress`} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               <div className={`absolute inset-0 bg-gradient-to-r ${act.color}`}></div>
               {/* Decorative number */}
-              <div className="absolute top-6 right-6 text-white/20 font-black text-7xl leading-none select-none">0{i+1}</div>
+              <div className="absolute top-6 right-6 text-white/20 font-black text-7xl leading-none select-none">0{i + 1}</div>
               <div className="absolute inset-0 flex flex-col justify-end p-8">
                 <div className="flex items-center gap-4 mb-3">
                   <span className="text-3xl drop-shadow-lg">{act.emoji}</span>
@@ -165,7 +165,7 @@ const Home = () => {
 
           {/* Visual Showcase — Grid of top vehicles */}
           <div className="order-2 md:order-2 flex flex-col gap-4">
-            
+
             {/* Sedan (Top) */}
             <Link to="/vehiculos" className="relative z-10 bg-white p-3 rounded-3xl shadow-xl transition-all hover:shadow-2xl group block cursor-pointer">
               <div className="overflow-hidden rounded-2xl w-full h-[250px] md:h-[300px] relative bg-slate-900 flex items-center justify-center">
@@ -195,10 +195,10 @@ const Home = () => {
                 <p className="text-slate-400 text-[10px] uppercase font-bold tracking-widest">{specialVan.capacity}</p>
               </div>
             </Link>
-            
+
             {/* Bus & Minivan minis */}
             <div className="grid grid-cols-2 gap-2 sm:gap-4">
-               <Link to="/vehiculos" className="bg-white p-2 rounded-2xl shadow-md border border-slate-50 relative overflow-hidden group block cursor-pointer">
+              <Link to="/vehiculos" className="bg-white p-2 rounded-2xl shadow-md border border-slate-50 relative overflow-hidden group block cursor-pointer">
                 <div className="aspect-video w-full overflow-hidden rounded-xl mb-3 shadow-sm bg-slate-900 relative">
                   <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover scale-150 transition-transform duration-1000 group-hover:scale-110 opacity-90">
                     <source src="/assets/VEHICULOSMINIVANVIDEO.mp4" type="video/mp4" />
@@ -210,7 +210,7 @@ const Home = () => {
 
               <Link to="/vehiculos" className="bg-white p-2 rounded-2xl shadow-md border border-slate-50 relative overflow-hidden group block cursor-pointer">
                 <div className="aspect-video w-full overflow-hidden rounded-xl mb-3 shadow-sm bg-slate-900 relative">
-                   <img src="/assets/VEHICULOSBUS.webp" alt="Bus Vaniexpress" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-90" />
+                  <img src="/assets/VEHICULOSBUS.webp" alt="Bus Vaniexpress" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-90" />
                 </div>
                 <p className="font-bold text-slate-800 text-[10px] sm:text-xs px-1 leading-tight sm:leading-normal">Bus Turismo</p>
                 <p className="text-slate-400 text-[8px] sm:text-[9px] px-1 font-bold uppercase mb-1">40 Pax</p>
@@ -241,7 +241,7 @@ const Home = () => {
               className="inline-flex items-center gap-3 bg-white text-teal-800 px-10 py-4 rounded-2xl font-bold text-base hover:scale-105 hover:shadow-xl transition-all"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
               </svg>
               Hablar con un Asesor
             </a>
