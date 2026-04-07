@@ -151,91 +151,55 @@ const Vehicles = () => {
             </div>
           </section>
 
-          {/* FASE 2: Minivan y Van (Corrección de Videos recortados) */}
+          {/* TRANSPORTE GRUPAL VIP (Minivanes, Vans, Buses) */}
           <section>
             <div className="flex items-center gap-4 mb-10 px-4">
               <h2 className="text-xs font-black uppercase tracking-[0.5em] text-primary whitespace-nowrap">Transporte Grupal VIP</h2>
               <div className="h-px bg-primary/20 flex-grow"></div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 max-w-6xl mx-auto">
-               {[minivan, van].map((v) => (
-                 <div key={v.id} className="bg-slate-900 rounded-[2rem] overflow-hidden shadow-2xl relative flex flex-col group transform hover:-translate-y-1 transition-all duration-500 border border-slate-800/50">
-                    <div className="w-full aspect-[4/3] relative overflow-hidden">
-                      {v.video ? (
-                        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-[3000ms]">
-                          <source src={v.video} type="video/mp4" />
-                        </video>
-                      ) : (
-                        <img src={v.img} alt={`Servicio de ${v.name} para Transporte Turístico y Paseos en el Caribe`} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-[3000ms]" />
-                      )}
-                      
-                      <div className="absolute top-4 left-4 z-10">
-                        <span className="bg-primary/20 text-primary text-[10px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest border border-primary/30 shadow-[0_0_20px_rgba(45,212,191,0.25)]">{v.capacity}</span>
-                      </div>
-                    </div>
-
-                    <div className="p-6 flex flex-col flex-grow text-left bg-gradient-to-br from-slate-900 to-[#101918]">
-                        <h3 className="font-headline text-2xl font-black text-white mb-2 tracking-tight leading-tight">{v.name}</h3>
-                        <p className="text-slate-400 text-[13px] md:text-sm font-light leading-relaxed mb-5">{v.shortDesc}</p>
-                        
-                        <div className="grid grid-cols-2 gap-2 mb-6 w-full flex-grow">
-                          {v.specs.map((spec, i) => (
-                            <div key={i} className="flex items-center gap-2 text-slate-300 font-bold text-[10px]">
-                              <div className="w-1 h-1 rounded-full bg-primary/40 flex-shrink-0"></div>
-                              {spec}
-                            </div>
-                          ))}
-                        </div>
-
-                      <a
-                        href={`https://wa.me/573128869088?text=Hola,%20solicito%20presupuesto%20para%20${encodeURIComponent(v.name)}`}
-                        target="_blank" rel="noreferrer"
-                        className="w-full flex items-center justify-center gap-2 bg-primary text-white py-3.5 rounded-xl font-black text-sm hover:bg-teal-700 transition-all shadow-[0_15px_40px_rgba(45,212,191,0.3)]"
-                      >
-                         <WaIcon /> Cotizar Ahora <ArrowRight />
-                      </a>
-                    </div>
-                 </div>
-               ))}
-            </div>
-          </section>
-
-          {/* FASE 3: Bus (Special Section) */}
-          <section>
-            <div className="flex items-center gap-4 mb-10 px-4">
-              <h2 className="text-xs font-black uppercase tracking-[0.5em] text-slate-400 whitespace-nowrap">Logística a Gran Escala</h2>
-              <div className="h-px bg-slate-200 flex-grow"></div>
-            </div>
-
-            <div className="bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-2xl relative flex flex-col lg:flex-row group">
+            <div className="bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-2xl relative flex flex-col lg:flex-row group border border-slate-800/50">
                <div className="w-full lg:w-1/2 h-[400px] lg:h-[550px] relative overflow-hidden">
-                  <img src={bus.img} alt={`Alquiler de ${bus.name} para excursiones a la playa - Transporte Masivo Vaniexpress`} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-[3000ms]" />
+                  <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-[3000ms]">
+                    <source src="/assets/VEHICULOSMINIVANVIDEO.mp4" type="video/mp4" />
+                  </video>
+                  <div className="absolute top-4 left-4 z-10">
+                    <span className="bg-primary/20 text-primary text-[10px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest border border-primary/30 shadow-[0_0_20px_rgba(45,212,191,0.25)]">10, 14 y 40 Pasajeros</span>
+                  </div>
                </div>
                <div className="w-full lg:w-1/2 p-6 md:p-10 flex flex-col justify-center items-start text-left bg-gradient-to-br from-slate-900 to-[#101918]">
-                  <span className="bg-primary/20 text-primary text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest border border-primary/30 mb-4 inline-block shadow-[0_0_20px_rgba(45,212,191,0.25)]">{bus.capacity}</span>
                   <h2 className="text-white font-headline text-3xl md:text-5xl font-black tracking-tighter mb-4 leading-[0.85]">
-                    {bus.name}
+                    Minivanes, Vans y Buses
                   </h2>
                   <p className="text-slate-400 text-sm md:text-base font-light leading-relaxed mb-6 max-w-lg">
-                    {bus.shortDesc} Ideal para convenciones internacionales, congresos y logística corporativa masiva.
+                    Conoce nuestros cómodos vehículos grupales con capacidad para 10, 14 y 40 pasajeros. Ideales tanto para excursiones corporativas como para viajes en familia por el Caribe colombiano. 
                   </p>
                   
                   <div className="grid grid-cols-2 gap-x-4 gap-y-3 mb-8 w-full">
-                     {bus.specs.map((s, i) => (
-                        <div key={i} className="flex items-center gap-2 text-slate-300 font-bold text-xs">
-                           <div className="w-1.5 h-1.5 rounded-full bg-primary/40"></div>
-                           {s}
-                        </div>
-                     ))}
+                         <div className="flex items-center gap-2 text-slate-300 font-bold text-xs">
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary/40"></div>
+                            Minivan Executive (10 Pax)
+                         </div>
+                         <div className="flex items-center gap-2 text-slate-300 font-bold text-xs">
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary/40"></div>
+                            Van VIP (14 Pax)
+                         </div>
+                         <div className="flex items-center gap-2 text-slate-300 font-bold text-xs">
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary/40"></div>
+                            Bus de Gran Turismo (40 Pax)
+                         </div>
+                         <div className="flex items-center gap-2 text-slate-300 font-bold text-xs">
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary/40"></div>
+                            Asientos Reclinables
+                         </div>
                   </div>
 
                   <a 
-                    href={`https://wa.me/573128869088?text=Solicitar%20Logística%20Masiva%20Bus%20Vaniexpress%2040%20Pasajeros`}
+                    href={`https://wa.me/573128869088?text=Hola,%20solicito%20presupuesto%20para%20transporte%20grupal`}
                     target="_blank" rel="noreferrer"
                     className="w-full md:w-auto flex items-center justify-center gap-3 bg-primary text-white px-8 py-3.5 rounded-2xl font-black text-sm hover:bg-teal-700 transition-all shadow-[0_15px_40px_rgba(45,212,191,0.3)]"
                   >
-                    <WaIcon /> Consultar Logística <ArrowRight />
+                    <WaIcon /> Cotizar Transporte Grupal <ArrowRight />
                   </a>
                </div>
             </div>

@@ -142,7 +142,7 @@ const Home = () => {
               Flota Ampliada: <br />de 4 a 40 Pasajeros
             </h2>
             <p className="text-on-surface-variant text-base md:text-lg leading-relaxed mb-8 font-light">
-              Nuestra flota se fortalece desde la base. Conoce nuestro exclusivo <span className="font-bold text-slate-700">Sedán Ejecutivo</span> para viajes premium de 4 puestos, saltando a cómodas Minivanes de 10, nuestra flamante <span className="font-bold text-slate-700">Van VIP de 19 pasajeros</span> y robustos <span className="font-bold text-slate-700">Buses de 40</span> para grupos masivos. Sea cual sea el tamaño de tu viaje, te llevamos con la misma calidad.
+              Nuestra flota se fortalece desde la base. Conoce nuestro exclusivo <span className="font-bold text-slate-700">Sedán Ejecutivo</span> para viajes premium de 4 puestos. Para tus traslados grupales contamos con un único servicio integral que incluye <span className="font-bold text-slate-700">Minivanes de 10 pasajeros, Vans VIP de 14 pasajeros y amplios Buses de 40 pasajeros</span>. Sea cual sea el tamaño de tu viaje, te llevamos con la misma calidad.
             </p>
             <ul className="space-y-4 mb-10">
               <li className="flex items-center gap-4">
@@ -151,11 +151,7 @@ const Home = () => {
               </li>
               <li className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-xl bg-white shadow flex items-center justify-center font-bold text-primary">🚐</div>
-                <span className="font-semibold text-on-surface text-sm">Minivanes Executive (10 Pax) y Vans VIP (19 Pax)</span>
-              </li>
-              <li className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-white shadow flex items-center justify-center font-bold text-primary">🚍</div>
-                <span className="font-semibold text-on-surface text-sm">Buses de Gran Turismo (40 Pax)</span>
+                <span className="font-semibold text-on-surface text-sm">Transporte Grupal VIP (10 Pax, 14 Pax y 40 Pax)</span>
               </li>
             </ul>
             <Link to="/vehiculos" className="bg-primary text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:bg-teal-700 hover:shadow-xl transition-all inline-flex items-center gap-3 text-sm w-fit">
@@ -180,42 +176,21 @@ const Home = () => {
               </div>
             </Link>
 
-            {/* Van VIP */}
+            {/* Transporte Grupal (Minivan Video used for all) */}
             <Link to="/vehiculos" className="relative z-10 bg-white p-3 rounded-3xl shadow-xl transition-all hover:shadow-2xl group block cursor-pointer">
               <div className="overflow-hidden rounded-2xl w-full h-[250px] md:h-[300px] relative bg-slate-900">
                 <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90">
-                  <source src={specialVan.video} type="video/mp4" />
+                  <source src="/assets/VEHICULOSMINIVANVIDEO.mp4" type="video/mp4" />
                 </video>
                 <div className="absolute top-3 right-3 bg-primary text-white text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-tighter shadow-sm z-20">
-                  Van VIP
+                  Transporte Grupal
                 </div>
               </div>
               <div className="p-3 pb-1">
-                <p className="font-headline font-extrabold text-lg text-slate-800">{specialVan.name}</p>
-                <p className="text-slate-400 text-[10px] uppercase font-bold tracking-widest">{specialVan.capacity}</p>
+                <p className="font-headline font-extrabold text-lg text-slate-800">Minivanes, Vans y Buses</p>
+                <p className="text-slate-400 text-[10px] uppercase font-bold tracking-widest">10 Pax · 14 Pax · 40 Pax</p>
               </div>
             </Link>
-
-            {/* Bus & Minivan minis */}
-            <div className="grid grid-cols-2 gap-2 sm:gap-4">
-              <Link to="/vehiculos" className="bg-white p-2 rounded-2xl shadow-md border border-slate-50 relative overflow-hidden group block cursor-pointer">
-                <div className="aspect-video w-full overflow-hidden rounded-xl mb-3 shadow-sm bg-slate-900 relative">
-                  <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover scale-150 transition-transform duration-1000 group-hover:scale-110 opacity-90">
-                    <source src="/assets/VEHICULOSMINIVANVIDEO.mp4" type="video/mp4" />
-                  </video>
-                </div>
-                <p className="font-bold text-slate-800 text-[10px] sm:text-xs px-1 leading-tight sm:leading-normal">Minivan</p>
-                <p className="text-slate-400 text-[8px] sm:text-[9px] px-1 font-bold uppercase mb-1">10 Pax</p>
-              </Link>
-
-              <Link to="/vehiculos" className="bg-white p-2 rounded-2xl shadow-md border border-slate-50 relative overflow-hidden group block cursor-pointer">
-                <div className="aspect-video w-full overflow-hidden rounded-xl mb-3 shadow-sm bg-slate-900 relative">
-                  <img src="/assets/VEHICULOSBUS.webp" alt="Bus Vaniexpress" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-90" />
-                </div>
-                <p className="font-bold text-slate-800 text-[10px] sm:text-xs px-1 leading-tight sm:leading-normal">Bus Turismo</p>
-                <p className="text-slate-400 text-[8px] sm:text-[9px] px-1 font-bold uppercase mb-1">40 Pax</p>
-              </Link>
-            </div>
           </div>
         </div>
       </section>
