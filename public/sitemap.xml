@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://vaniexpress.com/</loc>
+        <loc>https://vaniexpress.co/</loc>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://vaniexpress.com/destinos</loc>
+        <loc>https://vaniexpress.co/destinos</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://vaniexpress.com/vehiculos</loc>
+        <loc>https://vaniexpress.co/vehiculos</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://vaniexpress.com/hotel/coral-de-fuego</loc>
+        <loc>https://vaniexpress.co/hotel/coral-de-fuego</loc>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://vaniexpress.com/hotel/isla-bonita</loc>
+        <loc>https://vaniexpress.co/hotel/isla-bonita</loc>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://vaniexpress.com/hotel/la-playita-isla-fuerte</loc>
+        <loc>https://vaniexpress.co/hotel/la-playita-isla-fuerte</loc>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://vaniexpress.com/hotel/covemar</loc>
+        <loc>https://vaniexpress.co/hotel/covemar</loc>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://vaniexpress.com/hotel/vista-al-mar</loc>
+        <loc>https://vaniexpress.co/hotel/vista-al-mar</loc>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://vaniexpress.com/hotel/bahía-la-rada</loc>
+        <loc>https://vaniexpress.co/hotel/bahía-la-rada</loc>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://vaniexpress.com/hotel/el-laguito</loc>
+        <loc>https://vaniexpress.co/hotel/el-laguito</loc>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://vaniexpress.com/hotel/los-tambos</loc>
+        <loc>https://vaniexpress.co/hotel/los-tambos</loc>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://vaniexpress.com/hotel/velanova</loc>
+        <loc>https://vaniexpress.co/hotel/velanova</loc>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
