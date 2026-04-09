@@ -183,7 +183,7 @@ export const hotels = [
     tag: "Hospedaje Familiar",
     shortDesc: "Espacioso apartamento para 18 personas, ideal para grandes grupos.",
     description: "Disfruta de la comodidad y privacidad de un apartamento totalmente equipado en San Bernardo del Viento. Con capacidad para 18 personas, es el refugio perfecto para familias numerosas o grupos de amigos que buscan una experiencia compartida frente al mar con todas las facilidades de un hogar.",
-    mainImage: "/assets/APTOSANBERNARDO (1).jpeg",
+    mainImage: "/assets/APTOSANBERNARDO (7).jpeg",
     gallery: [
       "/assets/APTOSANBERNARDO (2).jpeg",
       "/assets/APTOSANBERNARDO (3).jpeg",
