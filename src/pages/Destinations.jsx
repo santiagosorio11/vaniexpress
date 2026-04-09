@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { hotels } from '../data/content';
+import { hotels, boats } from '../data/content';
+
+const boatData = boats[0];
 
 const ArrowRight = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -111,6 +113,65 @@ const Destinations = () => {
               );
             })}
           </div>
+        </section>
+
+        {/* ─── ALQUILER DE BOTE PRIVADO (COVEÑAS) ─── */}
+        <section className="py-20 bg-slate-900 text-white overflow-hidden mx-4 md:mx-16 rounded-[3rem] mb-12 md:mb-24 shadow-2xl relative">
+          <div className="max-w-[1920px] mx-auto px-8 md:px-16 relative z-10">
+            <div className="flex flex-col items-start text-left">
+              
+              {/* Contenido Texto */}
+              <div className="w-full lg:w-3/4 mb-10">
+                <span className="inline-flex items-center gap-2 text-primary font-bold tracking-[0.4em] uppercase text-[10px] mb-6 px-4 py-2 bg-white/5 rounded-full border border-white/10">
+                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                  VIP Coveñas
+                </span>
+                <h2 className="font-headline text-4xl md:text-6xl font-extrabold tracking-tighter mb-6 leading-[0.85]">
+                   Bote <span className="text-primary italic">Privado</span>
+                </h2>
+                <p className="text-white/60 text-lg md:text-xl leading-relaxed mb-6 font-light max-w-3xl">
+                  {boatData.description}
+                </p>
+              </div>
+
+              {/* VIDEO INTEGRADO - CENTRADO */}
+              <div className="w-full max-w-4xl mb-12 mx-auto">
+                <div className="relative aspect-[4/5] md:aspect-[16/10] rounded-[3rem] overflow-hidden shadow-2xl bg-black border-4 border-white/10 group">
+                  <video autoPlay loop muted playsInline className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                    <source src={boatData.videoVertical} type="video/mp4" />
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                  <div className="absolute bottom-10 left-10">
+                    <span className="text-primary font-black text-[10px] tracking-[0.5em] uppercase">Private Sea Experience</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Características y CTA */}
+              <div className="w-full lg:w-3/4">
+                <div className="flex flex-wrap gap-x-12 gap-y-4 mb-12">
+                  {boatData.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-primary"></div>
+                      <span className="font-bold text-sm text-white/90">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex justify-start pt-6 border-t border-white/10">
+                  <a
+                    href={`https://wa.me/573128869088?text=Hola,%20me%20interesa%20el%20servicio%20de%20bote%20privado%20en%20Coveñas`}
+                    target="_blank" rel="noreferrer"
+                    className="group bg-primary text-white px-12 py-5 rounded-2xl font-black shadow-2xl hover:bg-white hover:text-slate-900 transition-all inline-flex items-center justify-center gap-4 text-xs uppercase tracking-widest"
+                  >
+                    Cotizar Ahora <ArrowRight />
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[150px] rounded-full"></div>
         </section>
 
         {/* ─── Actividades ─── */}

@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { hotels, vehicles, specialVan } from '../data/content';
+import { hotels, vehicles, specialVan, boats } from '../data/content';
 import DestinationsCarousel from '../components/Destinations';
+
+const boatData = boats[0];
 
 const ArrowRight = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -193,6 +195,57 @@ const Home = () => {
             </Link>
           </div>
         </div>
+      </section>
+
+      {/* ─── ALQUILER DE BOTE PRIVADO ─── */}
+      <section className="py-16 md:py-32 bg-slate-50 overflow-hidden relative">
+        <div className="max-w-[1920px] mx-auto px-6 md:px-16">
+            {/* Contenido Texto e Imagen Integrados */}
+            <div className="w-full lg:w-3/4 mx-auto">
+              <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs block mb-4 px-3 py-1 bg-primary/10 w-fit rounded-full">Experiencia Exclusiva</span>
+              <h2 className="font-headline text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tighter text-slate-900 mb-6 leading-[0.9]">
+                Bote Privado <span className="text-primary">en Coveñas</span>
+              </h2>
+              <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-10 font-light max-w-3xl">
+                {boatData.description}
+              </p>
+
+              {/* VIDEO INTEGRADO - CENTRADO */}
+              <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl bg-black border-4 border-white group mb-12 max-w-4xl mx-auto">
+                <video autoPlay loop muted playsInline className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+                  <source src={boatData.videoHorizontal} type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+              </div>
+              
+              <div className="flex flex-wrap gap-x-12 gap-y-6 mb-12">
+                {boatData.features.map((feature, idx) => (
+                  <div key={idx} className="flex items-center gap-3">
+                    <div className="w-5 h-5 rounded-full bg-primary flex items-center justify-center text-white text-[8px]">★</div>
+                    <span className="text-slate-800 font-bold text-sm tracking-tight">{feature}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-2 mb-12">
+                {boatData.activities.map((act, idx) => (
+                  <span key={idx} className="bg-white text-slate-400 border border-slate-100 px-4 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest whitespace-nowrap">
+                    {act}
+                  </span>
+                ))}
+              </div>
+
+              <a
+                href={`https://wa.me/573128869088?text=Hola,%20me%20interesa%20alquilar%20el%20bote%20privado%20en%20Coveñas`}
+                target="_blank" rel="noreferrer"
+                className="group bg-slate-900 text-white px-12 py-5 rounded-2xl font-bold shadow-2xl hover:bg-primary transition-all inline-flex items-center gap-4 text-base hover:scale-105"
+              >
+                Reservar Mi Bote <ArrowRight />
+              </a>
+            </div>
+        </div>
+        
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-primary/5 blur-[120px] rounded-full -z-10"></div>
       </section>
 
       {/* ─── CTA FINAL ─── */}

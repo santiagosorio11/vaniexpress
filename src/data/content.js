@@ -2,7 +2,7 @@ export const hotels = [
   {
     id: "coral-de-fuego",
     name: "Hotel Coral de Fuego",
-    location: "Coveñas, Sucre",
+    location: "Isla Fuerte, Bolívar",
     tag: "Resort Premium",
     shortDesc: "Un paraíso exclusivo frente al mar con todas las comodidades de lujo.",
     description: "Sumérgete en el lujo absoluto en el Hotel Coral de Fuego. Ubicado en las hermosas playas de Coveñas, este resort premium ofrece una experiencia inigualable con sus amplias piscinas, atención personalizada y atardeceres de ensueño. Perfecto para familias y parejas buscando desconexión real.",
@@ -84,7 +84,7 @@ export const hotels = [
   {
     id: "vista-al-mar",
     name: "Hotel Vista al Mar",
-    location: "San Antero, Córdoba",
+    location: "Isla Fuerte, Bolívar",
     tag: "Boutique Exclusivo",
     shortDesc: "Experiencia boutique íntima con la mejor gastronomía de la región.",
     description: "Un refugio boutique donde cada detail está cuidadosamente pensado. En Vista al Mar disfrutarás de atardeceres ininterrumpidos, una arquitectura que respira la brisa caribeña y delicias culinarias preparadas con pesca del día.",
@@ -144,7 +144,7 @@ export const hotels = [
   {
     id: "los-tambos",
     name: "Los Tambos",
-    location: "Archipiélago de San Bernardo",
+    location: "San Bernardo del Viento, Córdoba",
     tag: "Refugio Caribeño",
     shortDesc: "Paz absoluta en el archipiélago más hermoso de Colombia.",
     description: "Los Tambos ofrece una experiencia de desconexión total en el Archipiélago de San Bernardo. Un lugar donde el mar turquesa y la brisa constante son los protagonistas de tus vacaciones.",
@@ -175,6 +175,43 @@ export const hotels = [
     features: ["Diseño Náutico", "Vistas al Mar", "Bar de Autor", "Deck de Atardeceres"],
     food: [],
     activities: ["Navegación", "Snorkeling", "Cata de Cocteles"]
+  },
+  {
+    id: "apto-san-bernardo",
+    name: "Apartamento Familiar San Bernardo",
+    location: "San Bernardo del Viento, Córdoba",
+    tag: "Hospedaje Familiar",
+    shortDesc: "Espacioso apartamento para 18 personas, ideal para grandes grupos.",
+    description: "Disfruta de la comodidad y privacidad de un apartamento totalmente equipado en San Bernardo del Viento. Con capacidad para 18 personas, es el refugio perfecto para familias numerosas o grupos de amigos que buscan una experiencia compartida frente al mar con todas las facilidades de un hogar.",
+    mainImage: "/assets/APTOSANBERNARDO (1).jpeg",
+    gallery: [
+      "/assets/APTOSANBERNARDO (2).jpeg",
+      "/assets/APTOSANBERNARDO (3).jpeg",
+      "/assets/APTOSANBERNARDO (4).jpeg",
+      "/assets/APTOSANBERNARDO (5).jpeg",
+      "/assets/APTOSANBERNARDO (6).jpeg",
+      "/assets/APTOSANBERNARDO (7).jpeg",
+      "/assets/APTOSANBERNARDO (8).jpeg",
+      "/assets/APTOSANBERNARDO (9).jpeg"
+    ],
+    features: ["Capacidad 18 Personas", "Frente al Mar", "Cocina Equipada", "Zonas Sociales Amplias"],
+    food: [],
+    activities: ["Playa", "Caminatas", "Pesca deportiva"]
+  }
+];
+
+export const boats = [
+  {
+    id: "bote-privado-covenas",
+    name: "Alquiler de Bote Privado en Coveñas",
+    location: "Coveñas, Sucre",
+    tag: "Experiencia VIP",
+    shortDesc: "Navega por las aguas de Coveñas y Tolú en tu propio bote privado.",
+    description: "Navega con exclusividad y confort. Ideal para grupos que buscan explorar Coveñas y el Archipiélago de San Bernardo a su propio ritmo.",
+    videoVertical: "/assets/boteprivadocoveñas.mp4",
+    videoHorizontal: "/assets/boteprivadocoveñas2.mp4",
+    features: ["Capacidad personalizada", "Tripulación Profesional"],
+    activities: ["Visita a Isla Palma", "Snorkel en arrecifes", "Atardeceres en el mar"]
   }
 ];
 
